@@ -1,37 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BiLogIn } from "react-icons/bi";
+import { TfiShoppingCartFull } from "react-icons/tfi";
+import { FaRegistered } from "react-icons/fa";
 
 const NavBar = () => {
   return (
     <div className="text-white font-sans font-medium flex fixed w-full justify-between text-4xl bg-red-500 shadow-2xl font-sans p-10">
-      <div className="flex items-center font-bold text-5xl">
+      <div className="flex items-center font-bold text-6xl">
         <h1>
-          <Link to="/">
+          <Link to="/home">
             <span className="text-blue-900">FOOD</span>ZZZ
           </Link>
         </h1>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center text-3xl">
         <ul className="flex gap-56">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/order">Order </Link>
+            <Link to="/menu">Menu </Link>
           </li>
           <li>
-            <Link to="/cart">Cart </Link>
+            <Link to="/order">My Order</Link>
           </li>
         </ul>
       </div>
-      <div className="text-3xl flex items-center">
-        <Link to="/register">
-          <button className="p-6 rounded-xl shadow-2xl mr-10 bg-red-700 hover:bg-blue-800">
-            Register
-          </button>
-        </Link>
-        <Link to="/login">{<BiLogIn className="text-5xl " />}</Link>
+      <div className=" flex gap-8 items-center">
+        <Link to="/">{<TfiShoppingCartFull className="text-5xl " />}</Link>
+        <Link to="/register">{<FaRegistered className="text-5xl" />}</Link>
+        <Link to="/">{<BiLogIn className="text-5xl " />}</Link>
       </div>
     </div>
   );

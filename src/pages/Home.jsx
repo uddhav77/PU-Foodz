@@ -6,20 +6,20 @@ import image from "../assets/images/Food Presentation.jpg";
 const Home = () => {
   const slides = [
     {
-      url: "https://img.freepik.com/premium-photo/food-with-delivery-set-dishes-diet-top-view-free-space-your-text-black-background_187166-25369.jpg",
+      url: "https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU=",
     },
     {
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3FFDpLjsk9k6rzoVGgg6Alg5ICw4jVP24P_Pm7y4a9kvqaB9QXia0WX2ZycUYJ1JPA10&usqp=CAU",
+      url: "https://media.istockphoto.com/photos/spicy-paneer-or-chilli-paneer-or-paneer-tikka-or-cottage-cheese-in-picture-id697316634?b=1&k=20&m=697316634&s=170667a&w=0&h=bctfHdYTz9q2dJUnuxGRDUUwC9UBWjL_oQo5ECVVDAs=",
     },
     {
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTXyvucHn17KM30zD-E07YOnzTSpkyTJZNQOQXnFUR65yTqll6aqeyFHB0PIpk2QzWGE&usqp=CAU",
+      url: "https://cdn.pixabay.com/photo/2018/03/23/08/27/thai-fried-rice-3253027__340.jpg",
     },
 
     {
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw1bS_yZMPviEiRDI9n8cH9bK3wDSk4-jsPUGWS6-areT5H2l-7qeyUYFqpF7X5O2KVH4&usqp=CAU",
+      url: "https://media.istockphoto.com/photos/chinese-food-veg-pizza-picture-id1341905237?k=20&m=1341905237&s=612x612&w=0&h=Lbuza1Ig5cC1PwQhqTsq-Uac8hg1W-V0Wx4d4lqDeB0=",
     },
     {
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSupNIWPzGa66Pqv2nU5QKRBU04ko2GwVbLlS6rqsdyxVaHxV_65cH82VYjlrTGbDrlia0&usqp=CAU",
+      url: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2tlbiUyMGZyaWVkJTIwcmljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
     },
   ];
 
@@ -52,8 +52,8 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className=" h-screen bg-red-200 ">
-        <div className="flex  items-center p-20">
+      <div className=" h-full bg-red-100 ">
+        <div className="flex items-center pt-32">
           <div className="p-8 ">
             <h1 className="font-bold text-8xl font-fantasy text-red-600 ">
               Satisfy your craving with us
@@ -69,36 +69,55 @@ const Home = () => {
                 </button>
               </div>
             </div>
+            <div className="mt-20 p-10 flex justify-between">
+              <div className="flex flex-col items-center">
+                <img
+                  src="https://foodmood.com.np/assets/extra-images/how-work-step2.png"
+                  alt=""
+                  className="w-[200px] h-[200px] "
+                />
+                <h2 className="font-bold text-4xl mt-8 text-red-500">
+                  Choose A Tasty Food
+                </h2>
+              </div>
+
+              <div className=" flex flex-col items-center">
+                <img
+                  src="https://foodmood.com.np/assets/extra-images/how-work-step3.png"
+                  alt=""
+                  className="w-[200px] h-[200px]"
+                />
+                <h2 className="font-bold text-4xl mt-8 text-red-500">
+                  Delivery At Your Home
+                </h2>
+              </div>
+            </div>
           </div>
-          <div className="w-[1000px] h-[800px] m-auto   flex flex-1 mt-44 group">
+          <div className="w-[1000px] h-[1000px] m-auto   flex flex-1  group">
             <div
               style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-              className="w-full h-full rounded-2xl  shadow-2xl bg-center bg-cover duration-500"
+              className="w-full h-full shadow-2xl bg-center bg-cover duration-500"
             ></div>
 
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactLeft onClick={prevSlide} size={30} />
-            </div>
-
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
-              <BsChevronCompactRight onClick={nextSlide} size={30} />
-            </div>
-
-            <div className="flex top-4 justify-center py-2">
-              {slides.map((slide, slideIndex) => (
-                <div
-                  key={slideIndex}
-                  onClick={() => goToSlide(slideIndex)}
-                  className={`text-2xl cursor-pointer ${
-                    slideIndex === currentIndex ? "text-red-500" : "text-black"
-                  }`}
-                ></div>
-              ))}
+            <div>
+              <div className="flex top-4 justify-center py-2">
+                {slides.map((slide, slideIndex) => (
+                  <div
+                    key={slideIndex}
+                    onClick={() => goToSlide(slideIndex)}
+                    className={`text-2xl cursor-pointer ${
+                      slideIndex === currentIndex
+                        ? "text-red-500"
+                        : "text-black"
+                    }`}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-red-600 p-20">
+        <div className="bg-red-600 p-20 ">
           <div className="text-7xl text-white underline decoration-double   font-poppins font-bold flex justify-center ">
             CATEGORIES OF FOOD ITEMS
           </div>
