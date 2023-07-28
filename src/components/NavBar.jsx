@@ -27,7 +27,7 @@ const NavBar = () => {
       </div>
       <div className="text-3xl flex items-center">
         <Link to="/register">
-          <button className="p-6 rounded-xl shadow-2xl mr-10 bg-red-700">
+          <button className="p-6 rounded-xl shadow-2xl mr-10 bg-red-700 hover:bg-blue-800">
             Register
           </button>
         </Link>

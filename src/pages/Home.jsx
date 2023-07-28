@@ -102,7 +102,7 @@ const Home = () => {
           <div className="text-7xl text-white underline decoration-double   font-poppins font-bold flex justify-center ">
             CATEGORIES OF FOOD ITEMS
           </div>
-          <img src={image} alt="images" />
+          {/* <img src={image} alt="images" /> */}
         </div>
       </div>
     </>
