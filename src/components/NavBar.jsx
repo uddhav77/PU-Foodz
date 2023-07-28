@@ -6,19 +6,17 @@ import { FaRegistered } from "react-icons/fa";
 
 const NavBar = () => {
   return (
-    <div className="text-white font-sans font-medium flex fixed w-full justify-between text-4xl bg-red-500 shadow-2xl font-sans p-10">
+    <div className="text-white font-sans font-medium flex fixed w-full justify-between text-4xl bg-cyan-500 shadow-2xl font-sans p-10">
       <div className="flex items-center font-bold text-6xl">
         <h1>
-          <Link to="/home">
           <Link to="/home">
             <span className="text-blue-900">FOOD</span>ZZZ
           </Link>
         </h1>
       </div>
-      <div className="flex items-center text-3xl">
+      <div className="flex items-center text-4xl">
         <ul className="flex gap-56">
           <li>
-            <Link to="/home">Home</Link>
             <Link to="/home">Home</Link>
           </li>
           <li>
@@ -30,7 +28,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className=" flex gap-8 items-center">
-        <Link to="/">{<TfiShoppingCartFull className="text-5xl " />}</Link>
+        <Link to="/cart">{<TfiShoppingCartFull className="text-5xl " />}</Link>
         <Link to="/register">{<FaRegistered className="text-5xl" />}</Link>
         <Link to="/">{<BiLogIn className="text-5xl " />}</Link>
       </div>

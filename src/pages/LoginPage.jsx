@@ -36,17 +36,22 @@ const LoginPage = () => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
   return (
-    <div className="h-screen bg-blue-900">
+    <div className="h-screen bg-gray-400">
       <div className="flex p-20 justify-center pt-32">
-        <div className="p-20 h-9/12 bg-gradient-to-t  rounded-ss-3xl rounded-es-3xl  from-red-500 via-red-500 to-pink-500 ">
-          <span className="flex justify-center text-white text-6xl font-bold">
-            WELCOME BACK TO FOODZZ
-          </span>
+        <div className="relative">
+          <img
+            src="https://img.freepik.com/free-photo/iskander-doner-bread-with-katig-table_140725-9835.jpg"
+            className="h-full w-[800px] rounded-ss-3xl rounded-es-3xl"
+          />
+          <div className="absolute top-0 flex flex-col items-center p-8 ml-14 ">
+            <span className=" text-white text-7xl font-fantasy  flex font-bold">
+              WELCOME TO FOODZZ
+            </span>
 
-          <img src={food} alt="food" className="ml-24 animate-pulse  mt-20" />
-          <div className="text-3xl text-white mt-8 font-medium text-center">
-            "Food may be essential as fule for the body, <br /> but GOOD food is
-            fuel for the soul"
+            <div className="text-3xl text-white mt-8 font-medium text-center mt-[850px]">
+              "Food may be essential as fule for the body, <br /> but GOOD food
+              is fuel for the soul"
+            </div>
           </div>
         </div>
         <div className="bg-white p-20 rounded-ee-3xl rounded-se-3xl">
