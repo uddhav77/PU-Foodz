@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import food from "../assets/Images/food.jpg";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:7000/api/loginuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: credentials.name,
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+
+    if (!json.sucess) {
+      alert("Enter Valid Credentials");
+    }
+  };
+  const onChange = (event) => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
+  };
   return (
-    <div className="h-screen bg-blue-900">
+    <div className="h-content bg-blue-900">
       <div className="flex p-20 justify-center pt-32">
         <div className="p-20 h-9/12 bg-gradient-to-t  rounded-ss-3xl rounded-es-3xl  from-red-500 via-red-500 to-pink-500 ">
           <span className="flex justify-center text-white text-6xl font-bold">
@@ -31,6 +59,9 @@ const LoginPage = () => {
                   type="name"
                   placeholder="Enter your full name"
                   className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 border-b border-b-red-800 mt-4"
+                  name="name"
+                  value={credentials.name}
+                  onChange={onChange}
                 />
               </div>
               <div className="mt-8">
@@ -40,6 +71,9 @@ const LoginPage = () => {
                   type="Email"
                   placeholder="Enter your email"
                   className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 border-b border-b-red-800   mt-4"
+                  name="email"
+                  value={credentials.email}
+                  onChange={onChange}
                 />
               </div>
               <div className="mt-8">
@@ -49,6 +83,9 @@ const LoginPage = () => {
                   type="password"
                   placeholder="Enter your password"
                   className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 mt-4 border-b border-b-red-500"
+                  name="password"
+                  value={credentials.password}
+                  onChange={onChange}
                 />
               </div>
 
@@ -58,7 +95,10 @@ const LoginPage = () => {
                 <div className="ml-32">Forget Password?</div>
               </div>
               <div className="pt-8">
-                <button className="bg-red-600 p-6 w-full text-white rounded-2xl shadow-2xl ">
+                <button
+                  className="bg-red-600 p-6 w-full text-white rounded-2xl shadow-2xl "
+                  onClick={handleSubmit}
+                >
                   Log in
                 </button>
 
