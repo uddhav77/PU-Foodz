@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Order from "./pages/Order";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
