@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import food from "../assets/Images/food.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({
@@ -8,6 +8,7 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("http://localhost:7000/api/loginuser", {
@@ -26,6 +27,9 @@ const LoginPage = () => {
 
     if (!json.sucess) {
       alert("Enter Valid Credentials");
+    }
+    if (json.sucess) {
+      navigate("/home");
     }
   };
   const onChange = (event) => {

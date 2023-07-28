@@ -124,7 +124,7 @@ const RegisterPage = () => {
 
               <div className="mt-8 flex justify-center">
                 Already have an account?
-                <Link to="/login">
+                <Link to="/">
                   <div className=" underline font-medium"> Log In</div>
                 </Link>
               </div>
