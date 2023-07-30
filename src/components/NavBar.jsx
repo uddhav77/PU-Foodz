@@ -10,7 +10,6 @@ const NavBar = () => {
       <div className="flex items-center font-bold text-6xl">
         <h1>
           <Link to="/home">
-          <Link to="/home">
             <span className="text-blue-900">FOOD</span>ZZZ
           </Link>
         </h1>
@@ -18,7 +17,6 @@ const NavBar = () => {
       <div className="flex items-center text-3xl">
         <ul className="flex gap-56">
           <li>
-            <Link to="/home">Home</Link>
             <Link to="/home">Home</Link>
           </li>
           <li>
