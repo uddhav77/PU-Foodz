@@ -2,12 +2,15 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+const jwtSecret = "g3P7k9JL6xv8W5BsC1DfT0nU2mRzQaEY";
 
 router.post(
   "/createuser",
   [
     body("email").isEmail(),
-    body("password", "Password must be alteast 5 characters").isLength({
+    body("password", "Password must be at least 5 characters").isLength({
       min: 5,
     }),
   ],
@@ -16,17 +19,20 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
     try {
+      const salt = await bcrypt.genSalt(10);
+      const secPassword = await bcrypt.hash(req.body.password, salt);
       await User.create({
         name: req.body.name,
-        password: req.body.password,
+        password: secPassword,
         email: req.body.email,
         location: req.body.location,
       });
-      res.json({ sucess: true });
+      res.json({ success: true });
     } catch (error) {
-      console.log(error);
-      res.json({ sucess: false });
+      console.error(error);
+      res.status(500).json({ success: false });
     }
   }
 );
@@ -35,7 +41,7 @@ router.post(
   "/loginuser",
   [
     body("email").isEmail(),
-    body("password", "Password must be alteast 5 characters").isLength({
+    body("password", "Password must be at least 5 characters").isLength({
       min: 5,
     }),
   ],
@@ -44,24 +50,35 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    let email = req.body.email;
+    const email = req.body.email;
     try {
-      let userData = await User.findOne({ email });
+      const userData = await User.findOne({ email });
       if (!userData) {
         return res
           .status(400)
-          .json({ errors: "Try logging with correct credentials" });
+          .json({ errors: "Invalid credentials. Please try again." });
       }
-      if (req.body.password !== userData.password) {
+      const pwdCompare = await bcrypt.compare(
+        req.body.password,
+        userData.password
+      );
+      if (!pwdCompare) {
         return res
           .status(400)
-          .json({ errors: "Try logging with correct credentials" });
+          .json({ errors: "Invalid credentials. Please try again." });
       }
 
-      return res.json({ sucess: true });
+      const data = {
+        user: {
+          id: userData.id,
+        },
+      };
+
+      const authToken = jwt.sign(data, jwtSecret);
+      return res.json({ success: true, authToken: authToken });
     } catch (error) {
-      console.log(error);
-      res.json({ sucess: false });
+      console.error(error);
+      res.status(500).json({ success: false });
     }
   }
 );

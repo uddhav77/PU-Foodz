@@ -29,6 +29,7 @@ const LoginPage = () => {
       alert("Enter Valid Credentials");
     }
     if (json.sucess) {
+      localStorage.setItem("authToken", json.authToken);
       navigate("/home");
     }
   };
