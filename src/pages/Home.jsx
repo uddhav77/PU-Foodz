@@ -7,6 +7,7 @@ import profile1 from "../assets/images/profile3.jpg";
 import profile2 from "../assets/images/profile2.jpg";
 import about from "../assets/images/about.jpg";
 import Categories from "../components/Categories";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const slides = [
@@ -42,9 +43,9 @@ const Home = () => {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
+  // const goToSlide = (slideIndex) => {
+  //   setCurrentIndex(slideIndex);
+  // };
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
@@ -135,19 +136,18 @@ const Home = () => {
             content=" One Click, one order and you get the food delivered. Think,
               Choose, Order, Delivered , Eat, Enjoy and Repeat"
           />
+          <Services
+            image="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/best-quality-badge-icon.png"
+            titleName="Best Quality"
+            content=" Straight out of the kitchen to your doorstep. The best service to
+              fulfill your expectations"
+          />
 
           <Services
             image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfwwcKTFBSxNAJHm_bHt9OCkB-1eMc7uJIRw&usqp=CAU"
             titleName="Fastest Delivery"
             content=" Just order and wait for a while. We’ll be there at your door.Good
               food within minutes. Delivering happiness."
-          />
-
-          <Services
-            image="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/best-quality-badge-icon.png"
-            titleName="Best Quality"
-            content=" Straight out of the kitchen to your doorstep. The best service to
-              fulfill your expectations"
           />
         </div>
         <div>
@@ -179,7 +179,7 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="h-[500px] w-full relative">
+        <div className="h-[600px] w-full relative">
           <div
             className="h-full w-full bg-local"
             style={{
@@ -193,20 +193,22 @@ const Home = () => {
 
           <div className="absolute top-0 left-0 h-full w-full flex flex-col items-center text-white  p-44 ">
             <div className="text-8xl font-fantasy fold-bold">About Us</div>
-            <p className="text-3xl text-center ">
+            <p className="text-3xl text-center mt-8 ">
               Foodzz is the fastest, easiest and most convenient way to enjoy
               the best food at home, at the office or wherever you want
               to.Foodzz is the new and advanced way of ordering and delivering
               foods to your doorsteps.Our dedicated delivery team ensures your
-              food reaches you quickly and reliably..Placing an order with
-              Foodzz is as easy as a few taps or clicks. Our intuitive and
+              food reaches you quickly and reliably.Placing an order with Foodzz
+              is as easy as a few taps or clicks. Our intuitive and
               user-friendly interface ensures a seamless ordering process,
               saving you time and effort. Our mission is to make food ordering a
               delightful and convenient experience for foodies like you!
             </p>
           </div>
         </div>
-        <div></div>
+        <div>
+          <Footer />
+        </div>
       </div>
     </>
   );

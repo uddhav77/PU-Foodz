@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -16,16 +17,21 @@ const Categories = () => {
 
   return (
     <div className="flex flex-wrap justify-center">
-      {categories.map((item, index) => (
-        <div
-          key={index}
-          className="category-item text-red-500 text-4xl font-bold bg-cyan-200 ml-10 mt-20 rounded-2xl shadow-2xl p-10 hover:scale-110 hover:duration-300"
-        >
-          <div>
-            <img src={item.strCategoryThumb} alt={item.strCategory} />
+      {categories.map((item) => (
+        <Link key={item.idCategory} to={`/description/${item.strCategory}`}>
+          <div className="category-item text-red-500 text-3xl font-bold bg-white ml-10 mt-20  relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
+            <div>
+              <img
+                src={item.strCategoryThumb}
+                alt={item.strCategory}
+                className="w-[500px] relative h-[300px] shadow-2xl rounded-2xl"
+              />
+            </div>
+            <div className="text-center mt-8 bg-red-400 text-white p-2 w-[250px] absolute top-0 right-0">
+              {item.strCategory}
+            </div>
           </div>
-          <div className="text-center mt-8">{item.strCategory}</div>
-        </div>
+        </Link>
       ))}
     </div>
   );
