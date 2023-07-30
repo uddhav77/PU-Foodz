@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import image from "../assets/images/Food Presentation.jpg";
+import Services from "../components/Services";
+import Reviews from "../components/Reviews";
+import profile from "../assets/images/profile.jpg";
+import profile1 from "../assets/images/profile3.jpg";
+import profile2 from "../assets/images/profile2.jpg";
+import about from "../assets/images/about.jpg";
+import Categories from "../components/Categories";
 
 const Home = () => {
   const slides = [
@@ -52,10 +57,10 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className=" h-full bg-red-100 ">
-        <div className="flex items-center pt-32">
+      <div className=" h-full bg-gray-300 ">
+        <div className="flex items-center pt-44">
           <div className="p-8 ">
-            <h1 className="font-bold text-8xl font-fantasy text-red-600 ">
+            <h1 className="font-bold text-7xl font-cursive text-red-500 ">
               Satisfy your craving with us
             </h1>
             <div className="pt-14 flex">
@@ -69,12 +74,12 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            <div className="mt-20 p-10 flex justify-between">
+            <div className="mt-20 p-10 flex  justify-between">
               <div className="flex flex-col items-center">
                 <img
                   src="https://foodmood.com.np/assets/extra-images/how-work-step2.png"
                   alt=""
-                  className="w-[200px] h-[200px] "
+                  className="w-[200px] h-[200px]  "
                 />
                 <h2 className="font-bold text-4xl mt-8 text-red-500">
                   Choose A Tasty Food
@@ -93,10 +98,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="w-[1000px] h-[1000px] m-auto   flex flex-1  group">
+          <div className="w-full h-[1000px] m-auto   flex flex-1  group">
             <div
               style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-              className="w-full h-full shadow-2xl bg-center bg-cover duration-500"
+              className="w-full h-full shadow-2xl bg-center  rounded-ss-3xl rounded-es-3xl bg-cover duration-500"
             ></div>
 
             <div>
@@ -117,45 +122,94 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="bg-red-600 p-20 ">
-          <div className="text-7xl text-white underline decoration-double   font-poppins font-bold flex justify-center ">
+        <div className="bg-cyan-600 p-20 mt-10">
+          <div className="text-7xl text-white font-curisve font-bold flex justify-center ">
             CATEGORIES OF FOOD ITEMS
           </div>
-          {/* <img src={image} alt="images" /> */}
+          <Categories />
         </div>
+        <div className="p-20 flex mt-28 gap-20 justify-center ">
+          <Services
+            image="https://www.gonnaorder.com/wp-content/uploads/2021/03/hand_order_1.svg"
+            titleName="Easy Order"
+            content=" One Click, one order and you get the food delivered. Think,
+              Choose, Order, Delivered , Eat, Enjoy and Repeat"
+          />
+
+          <Services
+            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfwwcKTFBSxNAJHm_bHt9OCkB-1eMc7uJIRw&usqp=CAU"
+            titleName="Fastest Delivery"
+            content=" Just order and wait for a while. We’ll be there at your door.Good
+              food within minutes. Delivering happiness."
+          />
+
+          <Services
+            image="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/best-quality-badge-icon.png"
+            titleName="Best Quality"
+            content=" Straight out of the kitchen to your doorstep. The best service to
+              fulfill your expectations"
+          />
+        </div>
+        <div>
+          <div className="text-center p-10">
+            <h2 className="text-red-500 text-8xl underline font-bold font-cursive">
+              Testimonials
+            </h2>
+            <h1 className="text-4xl mt-8 font-bold">
+              Our Lovely Customers Loves Our Sevices
+            </h1>
+          </div>
+          <div className="p-20 flex mt-4  group gap-20 justify-center ">
+            <Reviews
+              image={profile}
+              titleName="Ava Kaif"
+              content="Wow. It is so easy to get my food staying in my home for reasonable price. I am glad that u guys started this,really I was wishing something like this. Cheers."
+            />
+
+            <Reviews
+              image={profile1}
+              titleName="Oliver John"
+              content="Delivery in time, Great service, Warm food what else do you need ? The best in town simple as that."
+            />
+
+            <Reviews
+              image={profile2}
+              titleName="John Deo"
+              content="I owe you a big time. Thanks in tons god bless your service with loads and loads of opportunities to make your customer happier the way you do. Highly recommended"
+            />
+          </div>
+        </div>
+        <div className="h-[500px] w-full relative">
+          <div
+            className="h-full w-full bg-local"
+            style={{
+              backgroundImage:
+                "url(https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU=)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "blur(7px)",
+            }}
+          ></div>
+
+          <div className="absolute top-0 left-0 h-full w-full flex flex-col items-center text-white  p-44 ">
+            <div className="text-8xl font-fantasy fold-bold">About Us</div>
+            <p className="text-3xl text-center ">
+              Foodzz is the fastest, easiest and most convenient way to enjoy
+              the best food at home, at the office or wherever you want
+              to.Foodzz is the new and advanced way of ordering and delivering
+              foods to your doorsteps.Our dedicated delivery team ensures your
+              food reaches you quickly and reliably..Placing an order with
+              Foodzz is as easy as a few taps or clicks. Our intuitive and
+              user-friendly interface ensures a seamless ordering process,
+              saving you time and effort. Our mission is to make food ordering a
+              delightful and convenient experience for foodies like you!
+            </p>
+          </div>
+        </div>
+        <div></div>
       </div>
     </>
   );
 };
 
 export default Home;
-
-// import React from "react";
-// import NavBar from "../components/NavBar";
-// import image from "../assets/images/home.jpg";
-
-// const Home = () => {
-//   return (
-//     <>
-//       <div>
-//         <NavBar />
-//       </div>
-//       <div className="p-20 relative">
-//         <div className="w-[2430px] h-[1000px] relative">
-//           <img
-//             src={image}
-//             alt="image"
-//             className="w-full h-full rounded-xl shadow-xl "
-//           />
-//           <div className="absolute top-0 p-8">
-//             <h1 className="font-bold text-8xl font-fantasy text-white mt-44">
-//               Satisfy your craving with us
-//             </h1>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Home;
