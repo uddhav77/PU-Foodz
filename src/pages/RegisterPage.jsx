@@ -26,7 +26,7 @@ const RegisterPage = () => {
     const json = await response.json();
     console.log(json);
 
-    if (!json.sucess) {
+    if (!json.success) {
       alert("Enter Valid Credentials");
     }
   };
