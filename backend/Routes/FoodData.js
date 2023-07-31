@@ -10,7 +10,7 @@ router.get("/foodData/:id", (req, res) => {
     );
 
     if (item) {
-      res.send(item.description);
+      res.send(item);
     } else {
       res.status(404).send("Item not found.");
     }

@@ -26,7 +26,7 @@ const Menu = () => {
       <NavBar />
       <div className="flex flex-wrap m pt-36 justify-center">
         {items.map((value) => (
-          <Link to={`/detail/${value.id}`} key={value.id}>
+          <Link to={`/detail/${value._id}`} key={value._id}>
             <div className="category-item text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
               <div>
                 <img
