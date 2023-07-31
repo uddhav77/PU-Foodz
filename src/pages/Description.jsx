@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 const Description = () => {
   const { name } = useParams();
   const [detail, setDetail] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -14,7 +15,8 @@ const Description = () => {
       setDetail(data.meals);
     };
     fetchData();
-  });
+  }, [name]);
+
   return (
     <div>
       <NavBar />
@@ -38,22 +40,21 @@ const Description = () => {
                 <div className="h-[120px]">
                   <h2 className="text-center font-medium">{item.strMeal}</h2>
                 </div>
-                {/* <div className="flex justify-center"> */}
-                {/* <input
-                    type="number"
-                    className="w-[60px] text-center bg-red-400"
-                  /> */}
                 <div className="flex justify-between text-3xl items-center">
                   <div>Rs. 350</div>
                   <div>
-                    <button className="text-2xl font-medium text-white w-[250px] bg-cyan-600 p-4 rounded-xl">
+                    <button
+                      onClick={() => {
+                        addToCart(item);
+                      }}
+                      className="text-2xl font-medium text-white w-[250px] bg-cyan-600 p-4 rounded-xl"
+                    >
                       Add to cart
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-            // </div>
           ))}
         </div>
       </div>

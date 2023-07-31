@@ -25,10 +25,10 @@ const LoginPage = () => {
     const json = await response.json();
     console.log(json);
 
-    if (!json.sucess) {
+    if (!json.success) {
       alert("Enter Valid Credentials");
     }
-    if (json.sucess) {
+    if (json.success) {
       localStorage.setItem("authToken", json.authToken);
       navigate("/home");
     }
