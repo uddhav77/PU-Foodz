@@ -37,12 +37,12 @@ const Detail = () => {
   return (
     <div>
       <NavBar />
-      <div className="mt-44 flex flex-col items-center justify-center ">
+      <div className="mt-44 flex flex-col items-center  justify-center ">
         <h1 className="font-bold text-red-600 text-7xl underline">
           {" "}
           Description of {detail.name}
         </h1>
-        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 shadow-2xl rounded-2xl ">
+        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 m-20 shadow-2xl rounded-2xl ">
           <div className="">
             <img
               src={detail.img}

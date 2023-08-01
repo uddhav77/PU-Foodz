@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex">
           <div className="">
             <div className="text-6xl font-bold">
-              <span className="text-blue-900">FOOD</span>ZZZ
+              <span className="text-blue-900">Hunger</span>Hub
             </div>
 
             <p className="w-[700px] text-3xl mt-6">
