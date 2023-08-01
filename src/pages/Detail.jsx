@@ -14,7 +14,6 @@ const Detail = () => {
   const [options, setOptions] = useState({});
 
   const handleAddToCart = async () => {
-    // Calculate finalPrice directly using the most up-to-date values of qty, size, and options
     const finalPrice = qty * parseInt(options[size]);
 
     await dispatch({
