@@ -37,10 +37,13 @@ const Detail = () => {
   return (
     <div>
       <NavBar />
-      <div className="mt-44 flex flex-col items-center justify-center ">
-        <h1 className="font-bold text-red-600 text-7xl underline"> Description of {detail.name}</h1>
-        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 shadow-2xl rounded-2xl ">
-        <div className="">
+      <div className="mt-44 flex flex-col items-center  justify-center ">
+        <h1 className="font-bold text-red-600 text-7xl underline">
+          {" "}
+          Description of {detail.name}
+        </h1>
+        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 m-20 shadow-2xl rounded-2xl ">
+          <div className="">
             <img
               src={detail.img}
               alt={detail.name}
@@ -48,12 +51,17 @@ const Detail = () => {
             />
           </div>
           <div className="text-white ">
-            <h2 className="text-6xl font-bold" >{detail.name}</h2>
-            <h2 className="text-5xl mt-8 font-medium"><span className="text-red-700">Category:</span> {detail.CategoryName}</h2>
+            <h2 className="text-6xl font-bold">{detail.name}</h2>
+            <h2 className="text-5xl mt-8 font-medium">
+              <span className="text-red-700">Category:</span>{" "}
+              {detail.CategoryName}
+            </h2>
             <h2 className="text-3xl mt-8">{detail.description}</h2>
             <select className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500">
               {Object.keys(detail.options[0]).map((option, index) => (
-                <option key={index} className="bg-red-500">{option}</option>
+                <option key={index} className="bg-red-500">
+                  {option}
+                </option>
               ))}
             </select>
           </div>

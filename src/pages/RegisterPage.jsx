@@ -43,7 +43,7 @@ const RegisterPage = () => {
           />
           <div className="absolute top-0 flex flex-col items-center p-8 ml-14 ">
             <span className=" text-white text-7xl font-fantasy  flex font-bold">
-              WELCOME TO FOODZZ
+              WELCOME TO HUNGERHUB
             </span>
 
             <div className="text-3xl text-white mt-8 font-medium text-center mt-[1010px]">
