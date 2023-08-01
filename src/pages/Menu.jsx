@@ -46,7 +46,9 @@ const Menu = () => {
       </div>
       <div className="flex flex-wrap  justify-center">
         {filteredItems.length === 0 ? (
-          <div className="text-center mt-8 text-5xl text-red-500 font-medium">Food not available</div>
+          <div className="text-center mt-8 text-5xl text-red-500 font-medium">
+            Food not available
+          </div>
         ) : (
           filteredItems.map((value) => (
             <Link to={`/detail/${value._id}`} key={value._id}>
