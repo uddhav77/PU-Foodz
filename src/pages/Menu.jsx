@@ -39,7 +39,7 @@ const Menu = () => {
         />
       </div>
 
-      <div className="p-8">
+      <div className="p-8 ">
         {foodCat.length !== 0 ? (
           foodCat.map((data) => (
             <div
