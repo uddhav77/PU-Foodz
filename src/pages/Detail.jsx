@@ -37,35 +37,25 @@ const Detail = () => {
   return (
     <div>
       <NavBar />
-      <div className="text-red-500 pt-44 justify-center ">
-        <h1 className="text-6xl underline font-bold font-cursive text-center">
-          Description of {detail.name}
-        </h1>
-        <div className="text-red-500 text-4xl bg-cyan-300 ml-32 mt-20 rounded-2xl w-[500px] shadow-2xl">
-          <div>
+      <div className="mt-44 flex flex-col items-center justify-center ">
+        <h1 className="font-bold text-red-600 text-7xl underline"> Description of {detail.name}</h1>
+        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 shadow-2xl rounded-2xl ">
+        <div className="">
             <img
               src={detail.img}
               alt={detail.name}
-              className="w-[500px] h-[400px] shadow-2xl"
+              className="h-[600px] h-[600px] shadow-2xl rounded-2xl transition-transform hover:scale-105 cursor-pointer"
             />
           </div>
-          <div className="p-10">
-            <div className="h-[120px]">
-              <h2 className="text-center font-medium">{detail.CategoryName}</h2>
-            </div>
-            <div className="flex justify-between text-3xl items-center">
-              <div>{detail.description}</div>
-              <div>
-                {/* <button
-                  onClick={() => {
-                    // Handle addToCart function logic here
-                  }}
-                  className="text-2xl font-medium text-white w-[250px] bg-cyan-600 p-4 rounded-xl"
-                >
-                  Add to cart
-                </button> */}
-              </div>
-            </div>
+          <div className="text-white ">
+            <h2 className="text-6xl font-bold" >{detail.name}</h2>
+            <h2 className="text-5xl mt-8 font-medium"><span className="text-red-700">Category:</span> {detail.CategoryName}</h2>
+            <h2 className="text-3xl mt-8">{detail.description}</h2>
+            <select className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500">
+              {Object.keys(detail.options[0]).map((option, index) => (
+                <option key={index} className="bg-red-500">{option}</option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
