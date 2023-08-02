@@ -40,6 +40,7 @@ const Detail = () => {
             id: detail._id,
             name: detail.name,
             price: finalPrice,
+            img: detail.img,
             size: size,
             qty: qty,
           });
