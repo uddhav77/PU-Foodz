@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import food from "../assets/Images/food.jpg";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {

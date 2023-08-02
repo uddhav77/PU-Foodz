@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import food from "../assets/Images/food.jpg";
 import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
@@ -9,30 +8,48 @@ const RegisterPage = () => {
     password: "",
     geolocation: "",
   });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:7000/api/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: credentials.name,
-        email: credentials.email,
-        password: credentials.password,
-        location: credentials.geolocation,
-      }),
-    });
-    const json = await response.json();
-    console.log(json);
+    try {
+      const response = await fetch("http://localhost:7000/api/createuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: credentials.name,
+          email: credentials.email,
+          password: credentials.password,
+          location: credentials.geolocation,
+        }),
+      });
+      const json = await response.json();
 
-    if (!json.success) {
-      alert("Enter Valid Credentials");
+      if (response.ok && json.success) {
+        // Registration successful
+        alert("Registration successful");
+        // Navigate to the login page
+        window.location.href = "/login";
+      } else if (!response.ok) {
+        // Handle non-2xx HTTP responses
+        const errorMessage = json.message || "Registration failed";
+        alert(errorMessage);
+      } else {
+        // Registration failed
+        const errorMessage = json.message || "Enter Valid Credentials";
+        alert(errorMessage);
+      }
+    } catch (error) {
+      // Handle network errors
+      alert("An error occurred while registering. Please try again later.");
     }
   };
+
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
+
   return (
     <div className="h-full bg-gray-400">
       <div className="flex p-20 justify-center pt-14">
