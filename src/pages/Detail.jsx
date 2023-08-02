@@ -134,34 +134,40 @@ const Detail = () => {
             </h2>
             <h2 className="text-3xl mt-8">{detail.description}</h2>
             <div className="flex gap-8">
-              <select
-                className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
-                value={size}
-                onChange={(e) => setSize(e.target.value)}
-                ref={priceRef}
-              >
-                {Object.keys(options).map((option, index) => (
-                  <option key={index} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-              <select
-                className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
-                value={qty}
-                onChange={(e) => setQty(e.target.value)}
-              >
-                {Array.from(Array(6), (e, i) => (
-                  <option key={i + 1} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
+              <div className="font-bold text-3xl ">
+                Size:
+                <select
+                  className="w-[200px] h-[60px] ml-4 bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
+                  ref={priceRef}
+                >
+                  {Object.keys(options).map((option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="font-bold text-3xl">
+                Quality:
+                <select
+                  className="w-[150px] h-[60px] ml-4 bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                  value={qty}
+                  onChange={(e) => setQty(e.target.value)}
+                >
+                  {Array.from(Array(6), (e, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
             <div className="pt-24 flex items-center gap-8">
-              <div className="text-4xl">Rs.{finalPrice}/-</div>
+              <div className="text-4xl font-bold">Rs.{finalPrice}/-</div>
               <button
-                className="p-4 bg-red-400 text-4xl rounded-2xl font-medium"
+                className="p-4 bg-red-500 text-4xl rounded-2xl font-medium"
                 onClick={handleAddToCart}
               >
                 Add to Cart

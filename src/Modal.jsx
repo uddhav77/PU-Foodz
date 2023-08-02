@@ -5,7 +5,7 @@ const MODAL_STYLES = {
   position: "fixed",
   top: "50%",
   left: "50%",
-  backgroundColor: "",
+  backgroundColor: "#99CCFF",
   transform: "translate(-50%, -50%)",
   zIndex: 1000,
   height: "90%",
@@ -28,8 +28,8 @@ export default function Modal({ children, onClose }) {
       <div style={OVERLAY_STYLES} />
       <div style={MODAL_STYLES}>
         <button
-          className="bg-red-400 p-4 text-5xl"
-          style={{ marginLeft: "98%", marginTop: "-35px" }}
+          className="bg-red-400 p-4 rounded-xl shadow-2xl w-[200x] h-[80px] text-5xl text-white"
+          style={{ marginLeft: "96%", marginTop: "-35px" }}
           onClick={onClose}
         >
           {" "}
