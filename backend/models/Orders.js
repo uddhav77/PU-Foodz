@@ -8,7 +8,7 @@ const OrderSchema = new Schema({
     required: true,
     unique: true,
   },
-  oreder_data: {
+  order_data: {
     type: Array,
     required: true,
   },
