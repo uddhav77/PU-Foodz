@@ -12,25 +12,23 @@ const Detail = () => {
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
   const [options, setOptions] = useState({});
+  const [finalPrice, setFinalPrice] = useState(0); // Default value will be updated later
 
   const handleAddToCart = async () => {
-    const finalPrice = qty * parseInt(options[size]);
-
-    await dispatch({
-      type: "ADD",
-      id: detail._id,
-      name: detail.name,
-      price: finalPrice,
-      size: size,
-      qty: qty,
-    });
-    console.log(data);
-  };
-  useEffect(() => {
-    if (priceRef.current) {
-      setSize(priceRef.current.value);
+    const selectedOption = options[size];
+    if (selectedOption) {
+      const finalPrice = qty * parseInt(selectedOption);
+      await dispatch({
+        type: "ADD",
+        id: detail._id,
+        name: detail.name,
+        price: finalPrice,
+        size: size,
+        qty: qty,
+      });
+      console.log(data);
     }
-  }, []);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,8 +41,12 @@ const Detail = () => {
         }
         const data = await response.json();
         setDetail(data);
-        if (data && data.options) {
-          setOptions(data.options);
+        if (data && data.options && data.options[0]) {
+          setOptions(data.options[0]);
+          const defaultSize = Object.keys(data.options[0])[0]; // Set the default size based on the first option
+          setSize(defaultSize); // Set the default size state
+          const defaultPrice = data.options[0][defaultSize]; // Get the price of the default size
+          setFinalPrice(qty * parseInt(defaultPrice)); // Set the default final price
         } else {
           setOptions({});
         }
@@ -56,6 +58,19 @@ const Detail = () => {
     };
     fetchData();
   }, [id]);
+
+  useEffect(() => {
+    if (priceRef.current) {
+      setSize(priceRef.current.value);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (options && size in options) {
+      const finalPrice = qty * parseInt(options[size]);
+      setFinalPrice(finalPrice);
+    }
+  }, [size, qty, options]);
 
   if (detail === null) {
     return (
@@ -91,17 +106,19 @@ const Detail = () => {
             <div className="flex gap-8">
               <select
                 className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                value={size}
                 onChange={(e) => setSize(e.target.value)}
                 ref={priceRef}
               >
-                {Object.keys(detail.options[0]).map((option, index) => (
-                  <option key={index} className="bg-red-500">
+                {Object.keys(options).map((option, index) => (
+                  <option key={index} value={option}>
                     {option}
                   </option>
                 ))}
               </select>
               <select
                 className="w-[200px] h-[60px] bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                value={qty}
                 onChange={(e) => setQty(e.target.value)}
               >
                 {Array.from(Array(6), (e, i) => (

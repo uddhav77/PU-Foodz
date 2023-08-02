@@ -125,7 +125,7 @@ const Home = () => {
 
         <div className="bg-cyan-600 p-20 mt-10">
           <div className="text-7xl text-white font-curisve font-bold flex justify-center ">
-            CATEGORIES OF FOOD ITEMS
+            POPULAR FOOD DISHES
           </div>
           <Categories />
         </div>

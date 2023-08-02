@@ -44,7 +44,7 @@ const LoginPage = () => {
             src="https://img.freepik.com/free-photo/iskander-doner-bread-with-katig-table_140725-9835.jpg"
             className="h-full w-[800px] rounded-ss-3xl rounded-es-3xl"
           />
-          <div className="absolute top-0 flex flex-col items-center p-8 ml-14 ">
+          <div className="absolute top-0 flex flex-col items-center p-8 ml-2 ">
             <span className=" text-white text-7xl font-fantasy  flex font-bold">
               WELCOME TO HUNGERHUB
             </span>

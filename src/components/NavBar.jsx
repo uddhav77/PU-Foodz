@@ -13,7 +13,6 @@ const NavBar = () => {
   return (
     <div className="text-white font-sans font-medium flex fixed top-0 w-full justify-between text-4xl bg-cyan-500 shadow-2xl font-sans p-10 z-50">
       {" "}
-      {/* Added z-50 */}
       <div className="flex items-center font-bold text-6xl">
         <h1>
           <Link to="/home">
@@ -50,9 +49,15 @@ const NavBar = () => {
           </div>
         ) : (
           <div className="flex gap-8 items-center">
-            <Link to="/cart">
-              <TfiShoppingCartFull className="text-5xl" />
-            </Link>
+            <div>
+              <Link to="/cart">
+                <TfiShoppingCartFull className="text-5xl relative" />
+              </Link>
+            </div>
+            <div className="bg-red-400 rounded-2xl w-[36px] pl-3 text-3xl absolute top-7 right-[100px]">
+              2
+            </div>
+
             <div onClick={handleLogout}>
               {
                 <MdOutlineLogout className="text-5xl text-red-600 cursor-pointer" />
