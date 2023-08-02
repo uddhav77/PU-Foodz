@@ -41,7 +41,7 @@ const RegisterPage = () => {
             src="https://img.freepik.com/premium-photo/baked-trout-fillet-with-vegetables-plate-top-view-free-copy-space_187166-10459.jpg?w=360"
             className="h-full w-[800px] rounded-ss-3xl rounded-es-3xl"
           />
-          <div className="absolute top-0 flex flex-col items-center p-8 ml-14 ">
+          <div className="absolute top-0 flex flex-col items-center p-8  ">
             <span className=" text-white text-7xl font-fantasy  flex font-bold">
               WELCOME TO HUNGERHUB
             </span>
@@ -129,7 +129,7 @@ const RegisterPage = () => {
 
               <div className="mt-8 flex justify-center">
                 Already have an account?
-                <Link to="/">
+                <Link to="/login">
                   <div className=" underline font-medium"> Log In</div>
                 </Link>
               </div>

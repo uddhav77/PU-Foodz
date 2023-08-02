@@ -27,7 +27,7 @@ const LoginPage = () => {
 
     if (json.success) {
       localStorage.setItem("authToken", json.authToken);
-      navigate("/home");
+      navigate("/");
     }
     if (!json.success) {
       alert("Enter Valid Credentials");
