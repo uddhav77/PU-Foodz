@@ -16,23 +16,29 @@ export default function Cart() {
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
-    // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch("http://localhost:5000/api/auth/orderData", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_data: data,
-        email: userEmail,
-        order_date: new Date().toDateString(),
-      }),
-    });
-    console.log("JSON RESPONSE:::::", response.status);
-    if (response.status === 200) {
-      dispatch({ type: "DROP" });
+
+    try {
+      let response = await fetch("http://localhost:7000/api/orderData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          order_data: data,
+          email: userEmail,
+          order_date: new Date().toDateString(),
+        }),
+      });
+
+      if (response.status === 200) {
+        dispatch({ type: "DROP" });
+      } else {
+        console.log("Failed to checkout. Status code:", response.status);
+        // Handle failure scenarios, show an error message, etc.
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+      // Handle network errors or other exceptions during the checkout process.
     }
   };
 
