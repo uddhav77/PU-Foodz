@@ -18,6 +18,36 @@ const Detail = () => {
     const selectedOption = options[size];
     if (selectedOption) {
       const finalPrice = qty * parseInt(selectedOption);
+      let food = [];
+      for (const item of data) {
+        if (item.id === detail._id) {
+          food = item;
+          break;
+        }
+      }
+      if (food != []) {
+        if (food.size === size) {
+          await dispatch({
+            type: "UPDATE",
+            id: detail._id,
+            price: finalPrice,
+            qty: qty,
+          });
+          return;
+        } else if (food.size != size) {
+          await dispatch({
+            type: "ADD",
+            id: detail._id,
+            name: detail.name,
+            price: finalPrice,
+            size: size,
+            qty: qty,
+          });
+          return;
+          // console.log(data);
+        }
+        return;
+      }
       await dispatch({
         type: "ADD",
         id: detail._id,
@@ -26,7 +56,6 @@ const Detail = () => {
         size: size,
         qty: qty,
       });
-      console.log(data);
     }
   };
 

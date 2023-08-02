@@ -37,15 +37,15 @@ const Home = () => {
     setCurrentIndex(newIndex);
   };
 
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  // const goToSlide = (slideIndex) => {
-  //   setCurrentIndex(slideIndex);
+  // const prevSlide = () => {
+  //   const isFirstSlide = currentIndex === 0;
+  //   const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
   // };
+
+  // // const goToSlide = (slideIndex) => {
+  // //   setCurrentIndex(slideIndex);
+  // // };
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
@@ -58,55 +58,16 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className=" h-full bg-gray-300 ">
-        <div className="flex items-center pt-44">
-          <div className="p-8 ">
-            <h1 className="font-bold text-7xl font-cursive text-red-500 ">
-              Satisfy your craving with us
-            </h1>
-            <div className="pt-14 flex">
-              <input
-                className="p-8 border-b border-b-red -800 text-3xl  rounded-ss-2xl rounded-es-2xl  shadow-2xl w-full "
-                placeholder="Search....."
-              />
-              <div>
-                <button className="p-8 bg-red-600  rounded-ee-2xl rounded-se-2xl shadow-2xl text-3xl text-white">
-                  Search
-                </button>
-              </div>
-            </div>
-            <div className="mt-20 p-10 flex  justify-between">
-              <div className="flex flex-col items-center">
-                <img
-                  src="https://foodmood.com.np/assets/extra-images/how-work-step2.png"
-                  alt=""
-                  className="w-[200px] h-[200px]  "
-                />
-                <h2 className="font-bold text-4xl mt-8 text-red-500">
-                  Choose A Tasty Food
-                </h2>
-              </div>
-
-              <div className=" flex flex-col items-center">
-                <img
-                  src="https://foodmood.com.np/assets/extra-images/how-work-step3.png"
-                  alt=""
-                  className="w-[200px] h-[200px]"
-                />
-                <h2 className="font-bold text-4xl mt-8 text-red-500">
-                  Delivery At Your Home
-                </h2>
-              </div>
-            </div>
-          </div>
-          <div className="w-full h-[1000px] m-auto   flex flex-1  group">
+      <div className=" h-full bg-gray-300  ">
+        <div className="flex items-center pt-44 justify-center">
+          <div className="w-full h-[1000px] m-auto flex flex-1  group">
             <div
               style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-              className="w-full h-full shadow-2xl bg-center  rounded-ss-3xl rounded-es-3xl bg-cover duration-500"
+              className="w-full h-full shadow-2xl bg-center bg-cover duration-500"
             ></div>
 
             <div>
-              <div className="flex top-4 justify-center py-2">
+              <div className="flex top-4 justify-center relative py-2">
                 {slides.map((slide, slideIndex) => (
                   <div
                     key={slideIndex}
@@ -120,6 +81,9 @@ const Home = () => {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="absolute top-[900px] text-white text-6xl font-bold font-cursive">
+            Think, Choose, Order, Delivered , Eat, Enjoy and Repeat.
           </div>
         </div>
 

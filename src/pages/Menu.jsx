@@ -29,7 +29,7 @@ const Menu = () => {
 
       <div className="mt-44 pl-44 pr-36">
         <input
-          className="p-8 border-b border-b-red-800 text-3xl shadow-xl rounded-2xl bg-red-200 w-full "
+          className="p-8 border-b border-red-800 text-3xl shadow-xl rounded-2xl bg-red-200 w-full focus:outline-none focus:ring focus:border-blue-300"
           placeholder="Search For Your Favourite Food....."
           type="search"
           value={search}
@@ -62,7 +62,7 @@ const Menu = () => {
                         className="flex justify-center"
                       >
                         <Link to={`/detail/${filterItems._id}`}>
-                          <div className=" text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
+                          <div className="text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
                             <div>
                               <img
                                 src={filterItems.img}
@@ -78,7 +78,7 @@ const Menu = () => {
                       </div>
                     ))
                 ) : (
-                  <div>No Such Data Found</div>
+                  <div>No Food Items Found</div>
                 )}
               </div>
             </div>
