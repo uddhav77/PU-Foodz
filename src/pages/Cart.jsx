@@ -13,10 +13,6 @@ export default function Cart() {
       </div>
     );
   }
-  // const handleRemove = (index)=>{
-  //   console.log(index)
-  //   dispatch({type:"REMOVE",index:index})
-  // }
 
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
@@ -46,7 +42,7 @@ export default function Cart() {
       {console.log(data)}
       <div className="container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md">
         <table className="table table-hover ">
-          <thead className=" text-success fs-4 text-white">
+          <thead className="text-3xl text-white">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
@@ -56,7 +52,7 @@ export default function Cart() {
               <th scope="col"></th>
             </tr>
           </thead>
-          <tbody className="text-white">
+          <tbody className="text-white text-3xl">
             {data.map((food, index) => (
               <tr className="">
                 <th scope="row">{index + 1}</th>
@@ -83,7 +79,7 @@ export default function Cart() {
           <h1 className="fs-2">Total Price: {totalPrice}/-</h1>
         </div>
         <div>
-          <button className="btn bg-success mt-5 " onClick={handleCheckOut}>
+          <button className="p-4 bg-red-500 text-3xl" onClick={handleCheckOut}>
             {" "}
             Check Out{" "}
           </button>

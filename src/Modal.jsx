@@ -5,7 +5,7 @@ const MODAL_STYLES = {
   position: "fixed",
   top: "50%",
   left: "50%",
-  backgroundColor: "rgb(34,34,34)",
+  backgroundColor: "",
   transform: "translate(-50%, -50%)",
   zIndex: 1000,
   height: "90%",
@@ -29,7 +29,7 @@ export default function Modal({ children, onClose }) {
       <div style={MODAL_STYLES}>
         <button
           className="bg-red-400 p-4 text-5xl"
-          style={{ marginLeft: "90%", marginTop: "-35px" }}
+          style={{ marginLeft: "98%", marginTop: "-35px" }}
           onClick={onClose}
         >
           {" "}
