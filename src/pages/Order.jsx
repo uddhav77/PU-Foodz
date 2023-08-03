@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 export default function Order() {
   const [orderData, setOrderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +60,11 @@ export default function Order() {
   // Split the rendering logic for better readability
   let content;
   if (loading) {
-    content = <div>Loading...</div>;
+    content = (
+      <div className="mt-96 text-5xl flex justify-center">
+        {<AiOutlineLoading3Quarters className="animate-spin" />} Loading
+      </div>
+    );
   } else if (orderData.length > 0) {
     content = (
       <div className="text-4xl bg-gray-200 ">
