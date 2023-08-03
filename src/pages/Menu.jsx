@@ -62,7 +62,7 @@ const Menu = () => {
                         className="flex justify-center"
                       >
                         <Link to={`/detail/${filterItems._id}`}>
-                          <div className="text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
+                          <div className="text-red-500 text-3xl font-bold bg-white ml-16 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
                             <div>
                               <img
                                 src={filterItems.img}
