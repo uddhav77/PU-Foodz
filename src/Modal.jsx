@@ -26,10 +26,10 @@ export default function Modal({ children, onClose }) {
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
+      <div style={MODAL_STYLES} className="rounded-3xl shadow-2xl">
         <button
-          className="bg-red-400 p-4 rounded-xl shadow-2xl w-[200x] h-[80px] text-5xl text-white"
-          style={{ marginLeft: "96%", marginTop: "-35px" }}
+          className="bg-red-400 p-6  rounded-tr-3xl rounded-bl-3xl shadow-2xl w-[200x] h-[100px] text-5xl text-white"
+          style={{ marginLeft: "96.7%", marginTop: "" }}
           onClick={onClose}
         >
           {" "}

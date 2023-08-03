@@ -74,14 +74,14 @@ export default function Order() {
                 {orderArray.map((item, itemIndex) => (
                   <div key={itemIndex} className="">
                     <div
-                      className="mt-3"
-                      style={{ width: "16rem", maxHeight: "360px" }}
+                      className=""
+                      style={{ width: "500px", maxHeight: "360px" }}
                     >
                       <img
                         src={item.img}
                         className=""
                         alt="img"
-                        style={{ height: "200px", objectFit: "fill" }}
+                        style={{ height: "300px", width: "450px" }}
                       />
                       <div className="">
                         <h5 className="">{item.name}</h5>

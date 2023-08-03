@@ -66,7 +66,7 @@ const NavBar = () => {
                 <Cart />
               </Modal>
             ) : null}
-            <div className="bg-red-400 rounded-2xl w-[36px] pl-3 text-3xl absolute top-7 right-[140px]">
+            <div className="bg-red-400 rounded-full w-[38px] pl-3 text-3xl absolute top-7 right-[130px]">
               {data.length}
             </div>
 
