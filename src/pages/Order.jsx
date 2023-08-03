@@ -63,11 +63,6 @@ export default function Order() {
   } else if (orderData.length > 0) {
     content = (
       <div className="text-4xl pt-10">
-        {/* Display user name and email */}
-        <div className="text-4xl text-center pt-20 text">
-          Email: {userEmail}
-        </div>
-
         {orderData.map((order, orderIndex) => (
           <div key={orderIndex} className="bg-red-300 p-20 flex gap-8">
             {/* Display the Order_date */}

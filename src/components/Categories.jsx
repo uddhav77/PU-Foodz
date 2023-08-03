@@ -21,7 +21,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {items.map((value) => {
           return (
             <Link to={`/detail/${value._id}`}>

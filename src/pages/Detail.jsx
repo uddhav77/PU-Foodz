@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
+import Footer from "../components/Footer";
 
 const Detail = () => {
   const dispatch = useDispatchCart();
@@ -178,6 +179,9 @@ const Detail = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

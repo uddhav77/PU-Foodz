@@ -26,6 +26,7 @@ const LoginPage = () => {
 
     if (json.success) {
       localStorage.setItem("userEmail", credentials.email);
+      localStorage.setItem("name", credentials.name);
       localStorage.setItem("authToken", json.authToken);
       navigate("/");
     }
