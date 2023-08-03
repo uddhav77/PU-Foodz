@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -7,7 +7,17 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const [rememberMe, setRememberMe] = useState(false); // State for "Remember me" checkbox
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedCredentials = localStorage.getItem("rememberedCredentials");
+    if (rememberMe && storedCredentials) {
+      const { email, name } = JSON.parse(storedCredentials);
+      setCredentials({ ...credentials, email, name });
+    }
+  }, [rememberMe, credentials]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("http://localhost:7000/api/loginuser", {
@@ -25,6 +35,20 @@ const LoginPage = () => {
     console.log(json);
 
     if (json.success) {
+      if (rememberMe) {
+        // Save credentials to localStorage if "Remember me" is checked
+        localStorage.setItem(
+          "rememberedCredentials",
+          JSON.stringify({
+            email: credentials.email,
+            name: credentials.name,
+          })
+        );
+      } else {
+        // Clear remembered credentials from localStorage if "Remember me" is not checked
+        localStorage.removeItem("rememberedCredentials");
+      }
+
       localStorage.setItem("userEmail", credentials.email);
       localStorage.setItem("name", credentials.name);
       localStorage.setItem("authToken", json.authToken);
@@ -34,9 +58,15 @@ const LoginPage = () => {
       alert("Enter Valid Credentials");
     }
   };
+
   const onChange = (event) => {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
+
+  const handleRememberMeChange = (event) => {
+    setRememberMe(event.target.checked);
+  };
+
   return (
     <div className="h-screen bg-gray-400">
       <div className="flex p-20 justify-center pt-32">
@@ -100,9 +130,16 @@ const LoginPage = () => {
                 />
               </div>
 
-              <div className="flex justify-between">
-                <input type="checkbox" className="w-6 h-6 mt-2" />
-                <span className="ml-4 ">Remember me</span>
+              <div className="flex justify-between items-center mt-4">
+                <label>
+                  <input
+                    type="checkbox"
+                    className="w-6 h-6 mt-2"
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  />
+                  <span className="ml-2">Remember me</span>
+                </label>
                 <div className="ml-32">Forget Password?</div>
               </div>
               <div className="pt-8">
