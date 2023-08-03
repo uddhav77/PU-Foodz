@@ -7,7 +7,7 @@ export default function Cart() {
   if (data.length === 0) {
     return (
       <div>
-        <div className="m-5 text-center text-4xl text-white ">
+        <div className="text-6xl text-center mt-96 text-white font-bold  ">
           The Cart is Empty!
         </div>
       </div>
@@ -46,46 +46,69 @@ export default function Cart() {
   return (
     <div>
       {console.log(data)}
-      <div className="container m-auto mt-5 table-responsive  table-responsive-sm table-responsive-md">
-        <table className="table table-hover ">
-          <thead className="text-3xl text-white">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Option</th>
-              <th scope="col">Amount</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody className="text-white text-3xl">
+      <div className="p-20 flex flex-col items-center justify-center">
+        <div className=" flex flex-col justify-center">
+          <div className="text-white text-3xl flex items-center p-8 ">
             {data.map((food, index) => (
-              <tr className="">
-                <th scope="row">{index + 1}</th>
-                <td>{food.name}</td>
-                <td>{food.qty}</td>
-                <td>{food.size}</td>
-                <td>{food.price}</td>
-                <td>
-                  <button type="button" className="btn p-0">
+              <div className="flex gap-44 text-4xl text-black ">
+                <div className="flex flex-col items-center ">
+                  <p className="font-bold font-cursive text-red-700 text-5xl">
+                    #
+                  </p>
+                  <div className="mt-12">{index + 1}</div>
+                </div>
+                <div className="flex flex-col items-center ">
+                  <p className="font-bold font-cursive  text-red-700 text-5xl">
+                    Name
+                  </p>
+                  <div className="mt-12 ">{food.name}</div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="font-bold font-cursive text-red-700 text-5xl">
+                    {" "}
+                    Quantity
+                  </p>
+                  <div className="mt-12">{food.qty}</div>
+                </div>
+                <div className=" flex flex-col items-center">
+                  <p className="font-bold font-cursive text-red-700 text-5xl">
+                    Option
+                  </p>
+                  <div className="mt-12">{food.size}</div>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="font-bold font-cursive text-4xl text-red-700 text-5xl">
+                    Price
+                  </p>
+                  <div className="mt-12">{food.price}</div>
+                </div>
+
+                <div>
+                  <button type="button" className="btn mt-[90px]">
                     {
                       <AiFillDelete
+                        className="text-5xl fill-red-600"
                         onClick={() => {
                           dispatch({ type: "REMOVE", index: index });
                         }}
                       />
                     }
                   </button>{" "}
-                </td>
-              </tr>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
-        <div>
-          <h1 className="fs-2">Total Price: {totalPrice}/-</h1>
+          </div>
         </div>
         <div>
-          <button className="p-4 bg-red-500 text-3xl" onClick={handleCheckOut}>
+          <h1 className="mt-10 text-5xl font-poppins font-bold">
+            Total Price: {totalPrice}/-
+          </h1>
+        </div>
+        <div>
+          <button
+            className="p-6 bg-red-400 text-4xl mt-10 font-bold rounded-xl text-white"
+            onClick={handleCheckOut}
+          >
             {" "}
             Check Out{" "}
           </button>

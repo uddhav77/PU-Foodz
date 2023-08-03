@@ -115,10 +115,10 @@ const Detail = () => {
     <div>
       <NavBar />
       <div className="mt-44 flex flex-col items-center justify-center">
-        <h1 className="font-bold text-red-600 text-7xl underline">
+        <h1 className="font-bold text-red-600 text-6xl underline">
           Description of {detail.name}
         </h1>
-        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 m-20 shadow-2xl rounded-2xl">
+        <div className="mt-20 bg-cyan-500 flex p-4 gap-8 text-5xl m-20 shadow-2xl rounded-2xl">
           <div className="">
             <img
               src={detail.img}
@@ -126,14 +126,14 @@ const Detail = () => {
               className="h-[600px] h-[600px] shadow-2xl rounded-2xl transition-transform hover:scale-105 cursor-pointer"
             />
           </div>
-          <div className="text-white">
+          <div className="text-white pt-8">
             <h2 className="text-6xl font-bold">{detail.name}</h2>
             <h2 className="text-5xl mt-8 font-medium">
               <span className="text-red-700">Category:</span>{" "}
               {detail.CategoryName}
             </h2>
             <h2 className="text-3xl mt-8">{detail.description}</h2>
-            <div className="flex gap-8">
+            <div className="flex gap-10">
               <div className="font-bold text-3xl ">
                 Size:
                 <select
@@ -164,8 +164,11 @@ const Detail = () => {
                 </select>
               </div>
             </div>
-            <div className="pt-24 flex items-center gap-8">
-              <div className="text-4xl font-bold">Rs.{finalPrice}/-</div>
+            <div className=" flex flex-col  gap-8">
+              <div className="text-4xl font-bold mt-[44px]">
+                Total Price:{" "}
+                <span className="text-black">Rs.{finalPrice}/-</span>
+              </div>
               <button
                 className="p-4 bg-red-500 text-4xl rounded-2xl font-medium"
                 onClick={handleAddToCart}
