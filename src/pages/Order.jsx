@@ -5,7 +5,6 @@ import NavBar from "../components/NavBar";
 export default function Order() {
   const [orderData, setOrderData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
@@ -32,17 +31,25 @@ export default function Order() {
       const data = await response.json();
       console.log("API Response:", data);
 
-      if (data.orderData && Array.isArray(data.orderData.order_data)) {
-        console.log("Setting orderData:", data.orderData.order_data);
-        setOrderData(data.orderData.order_data);
+      if (Array.isArray(data.orderData)) {
+        // Restructure the orderData array to a more suitable format
+        const formattedOrderData = data.orderData.map((orderItem) => {
+          const { Order_date, ...orderDetails } = orderItem;
+          return {
+            Order_date,
+            orderDetails: Object.values(orderDetails),
+          };
+        });
+
+        console.log("Setting orderData:", formattedOrderData);
+        setOrderData(formattedOrderData);
       } else {
         console.log("No order data available.");
         setOrderData([]); // Set orderData to an empty array when there is no order data
       }
 
       setLoading(false); // Data fetching completed, set loading to false
-      setUserName(data.orderData.userName); // Make sure 'userName' is correctly returned from the API
-      setUserEmail(data.orderData.email);
+      // setUserEmail(data.email); // Update the state with the user email
     } catch (error) {
       console.error("Error fetching order data:", error);
       setLoading(false); // Set loading to false even in case of an error
@@ -60,35 +67,35 @@ export default function Order() {
         <div className="text-4xl text-center pt-20 text">
           Email: {userEmail}
         </div>
-
-        {orderData.map((orderArray, orderIndex) => (
-          <div key={orderIndex} className="bg-red-300 flex p-20 gap-8">
+        {orderData.map((order, orderIndex) => (
+          <div key={orderIndex} className="bg-red-300 p-20 flex gap-8">
             {/* Display the Order_date */}
-            <div className="self-center">{orderArray[0]?.Order_date}</div>
+            <div className="self-center">{order.Order_date}</div>
 
-            {orderArray.slice(1).map((item, itemIndex) => (
-              <div key={itemIndex} className="flex gap-8">
-                <div
-                  className="mt-3"
-                  style={{ width: "16rem", maxHeight: "360px" }}
-                >
-                  <img
-                    src={item.img}
-                    className=""
-                    alt="img"
-                    style={{ height: "200px", objectFit: "fill" }}
-                  />
-                  <div className="">
-                    <h5 className="">{item.name}</h5>
-                    <div className="w-100 p-0" style={{ height: "38px" }}>
-                      <span className="m-1">{item.qty}</span>
-                      <span className="m-1">{item.size}</span>
-                      <div className="h-100 w-20">Rs{item.price}/-</div>
+            {Array.isArray(order.orderDetails) &&
+              order.orderDetails.map((item, itemIndex) => (
+                <div key={itemIndex} className="flex flex-col gap-8">
+                  <div
+                    className="mt-3"
+                    style={{ width: "16rem", maxHeight: "360px" }}
+                  >
+                    <img
+                      src={item.img}
+                      className=""
+                      alt="img"
+                      style={{ height: "200px", objectFit: "fill" }}
+                    />
+                    <div className="">
+                      <h5 className="">{item.name}</h5>
+                      <div className="w-100 p-0" style={{ height: "38px" }}>
+                        <span className="m-1">{item.qty}</span>
+                        <span className="m-1">{item.size}</span>
+                        <div className="h-100 w-20">Rs{item.price}/-</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         ))}
       </div>
