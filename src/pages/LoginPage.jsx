@@ -140,7 +140,9 @@ const LoginPage = () => {
                   />
                   <span className="ml-2">Remember me</span>
                 </label>
-                <div className="ml-32">Forget Password?</div>
+                <Link to="/forgot-password">
+                  <div className="ml-32 cursor-pointer">Forget Password?</div>
+                </Link>
               </div>
               <div className="pt-8">
                 <button
