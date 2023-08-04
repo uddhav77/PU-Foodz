@@ -27,7 +27,7 @@ const Menu = () => {
     <>
       <NavBar />
 
-      <div className="mt-44 pl-44 pr-36">
+      <div className="pt-44 pl-44 pr-36">
         <input
           className="p-8 border-b border-red-800 text-3xl shadow-xl rounded-2xl bg-red-200 w-full focus:outline-none focus:ring focus:border-blue-300"
           placeholder="Search For Your Favourite Food....."

@@ -30,8 +30,8 @@ const NavBar = () => {
           </Link>
         </h1>
       </div>
-      <div className="flex items-center text-4xl">
-        <ul className="flex gap-56 md:items-center md:ml-10">
+      <div className="flex items-center text-3xl">
+        <ul className="flex gap-44 md:items-center md:ml-10">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -45,6 +45,9 @@ const NavBar = () => {
           ) : (
             ""
           )}
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
         </ul>
       </div>
       <div>

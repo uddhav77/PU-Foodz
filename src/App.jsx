@@ -8,6 +8,7 @@ import Detail from "./pages/Detail";
 import { CartProvider } from "./components/ContextReducer";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./ResetPassword";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (

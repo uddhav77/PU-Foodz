@@ -61,7 +61,7 @@ export default function Order() {
   let content;
   if (loading) {
     content = (
-      <div className="mt-96 text-5xl flex justify-center">
+      <div className="pt-96 text-5xl flex justify-center">
         {<AiOutlineLoading3Quarters className="animate-spin" />} Loading
       </div>
     );
@@ -127,7 +127,7 @@ export default function Order() {
         <NavBar />
       </div>
 
-      <div className="mt-32">{content}</div>
+      <div className="pt-32">{content}</div>
 
       <div>
         <Footer />

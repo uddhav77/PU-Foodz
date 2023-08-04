@@ -115,7 +115,7 @@ const Detail = () => {
   return (
     <div>
       <NavBar />
-      <div className="mt-44 flex flex-col items-center justify-center">
+      <div className="pt-44 flex flex-col items-center justify-center">
         <h1 className="font-bold text-red-600 text-6xl underline">
           Description of {detail.name}
         </h1>
