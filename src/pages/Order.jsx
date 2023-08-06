@@ -66,40 +66,46 @@ export default function Order() {
       </div>
     );
   } else if (orderData.length > 0) {
+    const hoverStyles = "hover:bg-cyan-600 hover:text-white";
+    const animationStyles = "transition duration-300 transform hover:scale-105";
+
     content = (
-      <div className="text-4xl bg-gray-200 ">
+      <div className="text-4xl bg-gray-200">
         {orderData.map((order, orderIndex) => (
-          <div key={orderIndex} className=" p-20 flex gap-8">
-            {/* Display the Order_date */}
-            <div className="self-center text-red-500 font-bold">
+          <div key={orderIndex} className="p-20 flex gap-8">
+            <div
+              className={`self-center text-red-500 font-bold ${hoverStyles}`}
+            >
               Date: {order.Order_date}
             </div>
 
             {order.orderDetails.map((item, itemIndex) => (
               <div
                 key={itemIndex}
-                className="flex flex-col gap-8 rounded-xl shadow-xl shadow-indigo-500/40 "
+                className={`flex flex-col gap-8 rounded-xl shadow-xl shadow-indigo-500/40 ${animationStyles}`}
                 style={{ backgroundColor: "#66B2FF" }}
               >
                 <div
-                  className="p-4"
+                  className={`p-4 ${hoverStyles}`}
                   style={{ width: "600px", height: "630px" }}
                 >
                   <img
                     src={item.img}
-                    className="shadow-2xl rounded-2xl"
+                    className={`shadow-2xl rounded-2xl ${animationStyles}`}
                     alt="img"
                     style={{ height: "400px", width: "600px" }}
                   />
                   <div className="text-center">
-                    <h5 className="font-bold mt-4">{item.name}</h5>
+                    <h5 className={`font-bold mt-4 ${hoverStyles}`}>
+                      {item.name}
+                    </h5>
                     <div className="">
                       <div className="flex justify-center gap-4 mt-2">
-                        <div>{item.qty}</div>
-                        <div>{item.size}</div>
+                        <div className={hoverStyles}>{item.qty}</div>
+                        <div className={hoverStyles}>{item.size}</div>
                       </div>
-                      <hr className="mt-4" />
-                      <div className="mt-4 text-red-500 font-bold">
+                      <hr className={`mt-4 ${hoverStyles}`} />
+                      <div className="mt-4 text-red-700 font-bold hover:text-black">
                         Rs {item.price}/-
                       </div>
                     </div>
@@ -114,8 +120,6 @@ export default function Order() {
   } else {
     content = (
       <div className="text-4xl pt-10">
-        {/* Display user name and email */}
-        {/* <div className="text-4xl text-center  text">Email: {userEmail}</div> */}
         <div>No order data available.</div>
       </div>
     );

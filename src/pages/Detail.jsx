@@ -120,11 +120,11 @@ const Detail = () => {
           Description of {detail.name}
         </h1>
         <div className="mt-20 bg-cyan-500 flex p-4 gap-8 text-5xl m-20 shadow-2xl rounded-2xl">
-          <div className="">
+          <div className="transition-transform hover:scale-105 cursor-pointer">
             <img
               src={detail.img}
               alt={detail.name}
-              className="h-[600px] h-[600px] shadow-2xl rounded-2xl transition-transform hover:scale-105 cursor-pointer"
+              className="h-[600px] h-[600px] shadow-2xl rounded-2xl"
             />
           </div>
           <div className="text-white pt-8">
@@ -135,10 +135,10 @@ const Detail = () => {
             </h2>
             <h2 className="text-3xl mt-8">{detail.description}</h2>
             <div className="flex gap-10">
-              <div className="font-bold text-3xl ">
+              <div className="font-bold text-3xl">
                 Size:
                 <select
-                  className="w-[200px] h-[60px] ml-4 bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                  className="w-[200px] h-[60px] ml-4 text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500 hover:bg-red-600 transition-colors"
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                   ref={priceRef}
@@ -153,7 +153,7 @@ const Detail = () => {
               <div className="font-bold text-3xl">
                 Quality:
                 <select
-                  className="w-[150px] h-[60px] ml-4 bg-success text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500"
+                  className="w-[150px] h-[60px] ml-4 text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500 hover:bg-red-600 transition-colors"
                   value={qty}
                   onChange={(e) => setQty(e.target.value)}
                 >
@@ -165,13 +165,13 @@ const Detail = () => {
                 </select>
               </div>
             </div>
-            <div className=" flex flex-col  gap-8">
+            <div className="flex flex-col gap-8">
               <div className="text-4xl font-bold mt-[44px]">
                 Total Price:{" "}
                 <span className="text-black">Rs.{finalPrice}/-</span>
               </div>
               <button
-                className="p-4 bg-red-500 text-4xl rounded-2xl font-medium"
+                className="p-4 bg-red-500 text-4xl rounded-2xl font-medium hover:bg-red-600 transition-colors"
                 onClick={handleAddToCart}
               >
                 Add to Cart
