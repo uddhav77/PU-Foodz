@@ -39,7 +39,7 @@ const Menu = () => {
         />
       </div>
 
-      <div className="p-8 ">
+      <div className="p-8">
         {foodCat.length !== 0 ? (
           foodCat.map((data) => (
             <div
@@ -80,6 +80,20 @@ const Menu = () => {
                 ) : (
                   <div>No Food Items Found</div>
                 )}
+
+                {/* Display "Food Not Found" message */}
+
+                {items.length !== 0 &&
+                  items.filter(
+                    (item) =>
+                      item.CategoryName === data.CategoryName &&
+                      item.name.toLowerCase().includes(search.toLowerCase())
+                  ).length === 0 && (
+                    <div className="text-black text-3xl mt-10">
+                      <br />
+                      Food Not Found
+                    </div>
+                  )}
               </div>
             </div>
           ))
