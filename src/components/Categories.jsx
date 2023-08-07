@@ -22,10 +22,13 @@ const Menu = () => {
   return (
     <>
       <div className="flex flex-wrap justify-center">
-        {items.map((value) => {
+        {items.map((value, index) => {
           return (
             <Link to={`/detail/${value._id}`}>
-              <div className=" text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300">
+              <div
+                className=" text-red-500 text-3xl font-bold bg-white ml-10 mt-20 relative rounded-2xl shadow-2xl hover:scale-110 hover:duration-300"
+                key={index}
+              >
                 <div>
                   <img
                     src={value.img}
