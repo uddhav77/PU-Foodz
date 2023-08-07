@@ -62,7 +62,7 @@ export default function Order() {
   let content;
   if (loading) {
     content = (
-      <div className="pt-96 text-5xl flex justify-center">
+      <div className="pt-44 text-5xl flex justify-center gap-4">
         {<AiOutlineLoading3Quarters className="animate-spin" />} Loading
       </div>
     );

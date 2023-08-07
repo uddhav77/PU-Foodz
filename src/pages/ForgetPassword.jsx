@@ -20,6 +20,14 @@ const ForgetPassword = () => {
     });
     const json = await response.json();
     console.log(json);
+
+    if (response.ok) {
+      // If the request was successful, show an alert
+      alert("Password reset email has been sent. Check your inbox.");
+    } else {
+      // If there was an error, show an error alert
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   const onChange = (event) => {
@@ -28,7 +36,7 @@ const ForgetPassword = () => {
 
   return (
     <div className="h-screen bg-gray-400">
-      <div className="flex p-20 justify-center pt-32">
+      <div className="flex p-20 justify-center pt-32 items-center">
         <div className="bg-white p-20 rounded-ee-3xl rounded-se-3xl">
           <form className="w-full" onSubmit={handleSubmit}>
             <div className="text-5xl font-bold text-red-600 flex justify-center">
@@ -39,7 +47,7 @@ const ForgetPassword = () => {
                 <label className="font-bold ">Email</label>
                 <br />
                 <input
-                  type="email" // Use lowercase 'e' for email type
+                  type="email"
                   placeholder="Enter your email"
                   className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 border-b border-b-red-800   mt-4"
                   name="email"
@@ -50,7 +58,7 @@ const ForgetPassword = () => {
 
               <div className="pt-8">
                 <button
-                  type="submit" // Add type="submit" to the button
+                  type="submit"
                   className="bg-red-600 p-6 w-full text-white rounded-2xl shadow-2xl "
                 >
                   Send
