@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Khalti from "../components/Khalti/Khalti";
 export default function Order() {
   const [orderData, setOrderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -113,6 +114,9 @@ export default function Order() {
                 </div>
               </div>
             ))}
+            <div>
+              <Khalti />
+            </div>
           </div>
         ))}
       </div>
