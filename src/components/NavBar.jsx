@@ -26,7 +26,10 @@ const NavBar = () => {
       <div className="flex items-center font-bold text-6xl">
         <h1>
           <NavLink to="/">
-            <span className="text-blue-900">Hunger</span>Hub
+            <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
+              <span class="relative text-black">Hunger</span>
+            </span>
+            Hub
           </NavLink>
         </h1>
       </div>

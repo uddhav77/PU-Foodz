@@ -9,6 +9,7 @@ import { CartProvider } from "./components/ContextReducer";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./ResetPassword";
 import ContactUs from "./pages/ContactUs";
+import OrderTracking from "./pages/OrderTracking";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               path="/reset-password/:id/:token"
               element={<ResetPassword />}
             />
+            <Route path="/track/:orderId" element={<OrderTracking />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

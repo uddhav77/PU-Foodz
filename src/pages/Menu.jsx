@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { BsSearch } from "react-icons/bs";
 
 const Menu = () => {
   const [items, setItems] = useState([]);
@@ -27,9 +28,9 @@ const Menu = () => {
     <>
       <NavBar />
 
-      <div className="pt-44 pl-44 pr-36">
+      <div className="pt-52 pl-28 pr-28">
         <input
-          className="p-8 border-b border-red-800 text-3xl shadow-xl rounded-2xl bg-red-200 w-full focus:outline-none focus:ring focus:border-blue-300"
+          className="p-8 text-3xl hover:shadow-2xl rounded-2xl rounded-xl relative  w-full focus:outline-none focus:ring focus:border-blue-300"
           placeholder="Search For Your Favourite Food....."
           type="search"
           value={search}
@@ -37,6 +38,9 @@ const Menu = () => {
             setSearch(e.target.value);
           }}
         />
+        <div className="absolute top-60 right-44">
+          {<BsSearch className="text-4xl" />}
+        </div>
       </div>
 
       <div className="p-8">
@@ -44,11 +48,11 @@ const Menu = () => {
           foodCat.map((data) => (
             <div
               key={data._id}
-              className="text-red-400 font-bold flex flex-wrap text-5xl text-center mt-20"
+              className="text-red-400 font-bold flex flex-wrap text-5xl mt-10"
             >
               <div>{data.CategoryName}</div>
               <hr />
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap ">
                 {items.length !== 0 ? (
                   items
                     .filter(

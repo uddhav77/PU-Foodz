@@ -4,6 +4,8 @@ import NavBar from "../components/NavBar";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Khalti from "../components/Khalti/Khalti";
+import { Link } from "react-router-dom";
+
 export default function Order() {
   const [orderData, setOrderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +40,7 @@ export default function Order() {
         const formattedOrderData = data.orderData.map((orderItem) => {
           const { Order_date, ...orderDetails } = orderItem;
           return {
-            Order_date,
+            Order_date: new Date(Order_date).toLocaleString(), // Convert order date to a readable format
             orderDetails: Object.values(orderDetails),
           };
         });
@@ -58,6 +60,31 @@ export default function Order() {
     }
   };
 
+  const deleteOrderItem = async (orderDate, itemIndex) => {
+    try {
+      const response = await fetch("http://localhost:7000/api/deleteOrder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          orderDate: orderDate,
+          itemIndex: itemIndex,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete order item");
+      }
+
+      // After successfully deleting the order item, fetch the updated order data
+      fetchMyOrder();
+    } catch (error) {
+      console.error("Error deleting order item:", error);
+    }
+  };
+
   // Split the rendering logic for better readability
   let content;
   if (loading) {
@@ -72,53 +99,69 @@ export default function Order() {
 
     content = (
       <div className="text-4xl bg-gray-200">
-        {orderData.map((order, orderIndex) => (
-          <div key={orderIndex} className="p-20 flex gap-8">
-            <div
-              className={`self-center text-red-500 font-bold ${hoverStyles}`}
-            >
-              Date: {order.Order_date}
-            </div>
+        {orderData.map((order, orderIndex) => {
+          const orderDate = order.Order_date; // Store the order date for deletion
+          const orderTotal = order.orderDetails.reduce(
+            (total, item) => total + item.price,
+            0
+          );
 
-            {order.orderDetails.map((item, itemIndex) => (
+          return (
+            <div key={orderIndex} className="p-20 flex gap-8">
               <div
-                key={itemIndex}
-                className={`flex flex-col gap-8 rounded-xl shadow-xl shadow-indigo-500/40 ${animationStyles}`}
-                style={{ backgroundColor: "#66B2FF" }}
+                className={`self-center text-red-500 font-bold ${hoverStyles}`}
               >
+                Date: {order.Order_date}
+              </div>
+
+              {order.orderDetails.map((item, itemIndex) => (
                 <div
-                  className={`p-4 ${hoverStyles}`}
-                  style={{ width: "600px", height: "630px" }}
+                  key={itemIndex}
+                  className={`flex flex-col gap-8 rounded-xl shadow-xl shadow-indigo-500/40 ${animationStyles}`}
+                  style={{ backgroundColor: "#66B2FF" }}
                 >
-                  <img
-                    src={item.img}
-                    className={`shadow-2xl rounded-2xl ${animationStyles}`}
-                    alt="img"
-                    style={{ height: "400px", width: "600px" }}
-                  />
-                  <div className="text-center">
-                    <h5 className={`font-bold mt-4 ${hoverStyles}`}>
-                      {item.name}
-                    </h5>
-                    <div className="">
-                      <div className="flex justify-center gap-4 mt-2">
-                        <div className={hoverStyles}>{item.qty}</div>
-                        <div className={hoverStyles}>{item.size}</div>
-                      </div>
-                      <hr className={`mt-4 ${hoverStyles}`} />
-                      <div className="mt-4 text-red-700 font-bold hover:text-black">
-                        Rs {item.price}/-
+                  <Link to={`/track/${order.id}`}>
+                    <div
+                      className={`p-4 ${hoverStyles}`}
+                      style={{ width: "600px", height: "630px" }}
+                    >
+                      <img
+                        src={item.img}
+                        className={`shadow-2xl rounded-2xl ${animationStyles}`}
+                        alt="img"
+                        style={{ height: "400px", width: "600px" }}
+                      />
+                      <div className="text-center">
+                        <h5 className={`font-bold mt-4 ${hoverStyles}`}>
+                          {item.name}
+                        </h5>
+                        <div className="">
+                          <div className="flex justify-center gap-4 mt-2">
+                            <div className={hoverStyles}>{item.qty}</div>
+                            <div className={hoverStyles}>{item.size}</div>
+                          </div>
+                          <hr className={`mt-4 ${hoverStyles}`} />
+                          <div className="mt-4 text-red-700 font-bold hover:text-black">
+                            Rs {item.price}/-
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
+              ))}
+
+              <div
+                className={`self-center text-red-500 font-bold ${hoverStyles}`}
+              >
+                Total: Rs {orderTotal}/-
               </div>
-            ))}
-            <div>
-              <Khalti />
             </div>
-          </div>
-        ))}
+          );
+        })}
+        <div>
+          <Khalti />
+        </div>
       </div>
     );
   } else {
@@ -135,7 +178,7 @@ export default function Order() {
         <NavBar />
       </div>
 
-      <div className="pt-32">{content}</div>
+      <div className="pt-36">{content}</div>
 
       <div>
         <Footer />

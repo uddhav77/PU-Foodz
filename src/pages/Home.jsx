@@ -158,7 +158,7 @@ const Home = () => {
           <div className="absolute top-0 left-0 h-full w-full flex flex-col items-center text-white  p-44 ">
             <div className="text-8xl font-fantasy fold-bold">About Us</div>
             <p className="text-3xl text-center mt-8 ">
-              Foodzz is the fastest, easiest and most convenient way to enjoy
+              HungerHub is the fastest, easiest and most convenient way to enjoy
               the best food at home, at the office or wherever you want
               to.Foodzz is the new and advanced way of ordering and delivering
               foods to your doorsteps.Our dedicated delivery team ensures your
