@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 import Footer from "../components/Footer";
+import CartPopup from "./CartPopup"; // Update the path accordingly
 
 const Detail = () => {
   const dispatch = useDispatchCart();
@@ -13,51 +14,48 @@ const Detail = () => {
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
   const [options, setOptions] = useState({});
-  const [finalPrice, setFinalPrice] = useState(0); // Default value will be updated later
+  const [finalPrice, setFinalPrice] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleAddToCart = async () => {
     const selectedOption = options[size];
     if (selectedOption) {
       const finalPrice = qty * parseInt(selectedOption);
-      let food = [];
-      for (const item of data) {
-        if (item.id === detail._id) {
-          food = item;
-          break;
-        }
+
+      // Check if the item is already in the cart
+      const existingItem = data.find(
+        (item) => item.id === detail._id && item.size === size
+      );
+
+      if (existingItem) {
+        // If the same item with the same size is in the cart, update it
+        await dispatch({
+          type: "UPDATE",
+          id: detail._id,
+          price: finalPrice,
+          qty: qty,
+          size: size,
+        });
+      } else {
+        // Otherwise, add the item to the cart
+        await dispatch({
+          type: "ADD",
+          id: detail._id,
+          name: detail.name,
+          price: finalPrice,
+          img: detail.img,
+          size: size,
+          qty: qty,
+        });
       }
-      if (food != []) {
-        if (food.size === size) {
-          await dispatch({
-            type: "UPDATE",
-            id: detail._id,
-            price: finalPrice,
-            qty: qty,
-          });
-          return;
-        } else if (food.size != size) {
-          await dispatch({
-            type: "ADD",
-            id: detail._id,
-            name: detail.name,
-            price: finalPrice,
-            img: detail.img,
-            size: size,
-            qty: qty,
-          });
-          return;
-          // console.log(data);
-        }
-        return;
-      }
-      await dispatch({
-        type: "ADD",
-        id: detail._id,
-        name: detail.name,
-        price: finalPrice,
-        size: size,
-        qty: qty,
-      });
+
+      // Display the pop-up
+      setShowPopup(true);
+
+      // Hide the pop-up after a delay
+      setTimeout(() => {
+        setShowPopup(false);
+      }, 2000);
     }
   };
 
@@ -74,10 +72,10 @@ const Detail = () => {
         setDetail(data);
         if (data && data.options && data.options[0]) {
           setOptions(data.options[0]);
-          const defaultSize = Object.keys(data.options[0])[0]; // Set the default size based on the first option
-          setSize(defaultSize); // Set the default size state
-          const defaultPrice = data.options[0][defaultSize]; // Get the price of the default size
-          setFinalPrice(qty * parseInt(defaultPrice)); // Set the default final price
+          const defaultSize = Object.keys(data.options[0])[0];
+          setSize(defaultSize);
+          const defaultPrice = data.options[0][defaultSize];
+          setFinalPrice(qty * parseInt(defaultPrice));
         } else {
           setOptions({});
         }
@@ -129,9 +127,8 @@ const Detail = () => {
           </div>
           <div className="text-white pt-8">
             <h2 className="text-6xl font-bold">{detail.name}</h2>
-            <h2 className="text-5xl mt-8 font-medium">
-              <span className="text-red-700">Category:</span>{" "}
-              {detail.CategoryName}
+            <h2 className="text-5xl mt-8 font-medium text-red-700">
+              Category: {detail.CategoryName}
             </h2>
             <h2 className="text-3xl mt-8">{detail.description}</h2>
             <div className="flex gap-10">
@@ -151,7 +148,7 @@ const Detail = () => {
                 </select>
               </div>
               <div className="font-bold text-3xl">
-                Quality:
+                Quantity:
                 <select
                   className="w-[150px] h-[60px] ml-4 text-2xl text-center mt-8 rounded-2xl shadow-xl bg-red-500 hover:bg-red-600 transition-colors"
                   value={qty}
@@ -176,13 +173,12 @@ const Detail = () => {
               >
                 Add to Cart
               </button>
+              {showPopup && <CartPopup onClose={() => setShowPopup(false)} />}
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

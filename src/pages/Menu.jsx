@@ -43,7 +43,7 @@ const Menu = () => {
         </div>
       </div>
 
-      <div className="">
+      <div className="flex flex-col items-center">
         {foodCat.length !== 0 ? (
           foodCat.map((data) => (
             <div
@@ -86,17 +86,18 @@ const Menu = () => {
                 ) : (
                   <div>No Food Items Found</div>
                 )}
-
-                {items.length !== 0 &&
-                  items.filter(
-                    (item) =>
-                      item.CategoryName === data.CategoryName &&
-                      item.name.toLowerCase().includes(search.toLowerCase())
-                  ).length === 0 && (
-                    <div className="text-black text-3xl mt-10 text-center">
-                      Food Not Found
-                    </div>
-                  )}
+                <div className="">
+                  {items.length !== 0 &&
+                    items.filter(
+                      (item) =>
+                        item.CategoryName === data.CategoryName &&
+                        item.name.toLowerCase().includes(search.toLowerCase())
+                    ).length === 0 && (
+                      <div className="text-black text-3xl mt-44">
+                        Food Not Found
+                      </div>
+                    )}
+                </div>
               </div>
             </div>
           ))
