@@ -43,16 +43,18 @@ const Menu = () => {
         </div>
       </div>
 
-      <div className="p-8">
+      <div className="">
         {foodCat.length !== 0 ? (
           foodCat.map((data) => (
             <div
               key={data._id}
-              className="text-red-400 font-bold flex flex-wrap text-5xl mt-10"
+              className="text-red-400 font-bold flex flex-wrap justify-center text-5xl mt-10"
             >
-              <div>{data.CategoryName}</div>
+              <div className="underline text-6xl mt-16">
+                {data.CategoryName}
+              </div>
               <hr />
-              <div className="flex flex-wrap ">
+              <div className="flex flex-wrap justify-center">
                 {items.length !== 0 ? (
                   items
                     .filter(
@@ -71,7 +73,7 @@ const Menu = () => {
                               <img
                                 src={filterItems.img}
                                 alt={filterItems.name}
-                                className="w-[550px] relative h-[350px] shadow-2xl rounded-2xl"
+                                className="w-[500px] relative h-[400px] shadow-2xl rounded-2xl"
                               />
                             </div>
                             <div className="text-center mt-8 bg-red-400 text-white p-2 w-[250px] absolute top-0 right-0">
