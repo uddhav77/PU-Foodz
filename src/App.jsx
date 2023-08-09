@@ -10,6 +10,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./ResetPassword";
 import ContactUs from "./pages/ContactUs";
 import OrderTracking from "./pages/OrderTracking";
+import UserDetails from "./pages/UserDetails";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/order" element={<Order />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/userDetails" element={<UserDetails />} />
 
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/register" element={<RegisterPage />} />

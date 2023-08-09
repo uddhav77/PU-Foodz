@@ -9,40 +9,49 @@ const RegisterPage = () => {
     geolocation: "",
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:7000/api/createuser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: credentials.name,
-          email: credentials.email,
-          password: credentials.password,
-          location: credentials.geolocation,
-        }),
-      });
-      const json = await response.json();
+  const [userType, setUserType] = useState("");
+  const [secretKey, setSecretKey] = useState("");
 
-      if (response.ok && json.success) {
-        // Registration successful
-        alert("Registration successful");
-        // Navigate to the login page
-        window.location.href = "/login";
-      } else if (!response.ok) {
-        // Handle non-2xx HTTP responses
-        const errorMessage = json.message || "Registration failed";
-        alert(errorMessage);
-      } else {
-        // Registration failed
-        const errorMessage = json.message || "Enter Valid Credentials";
-        alert(errorMessage);
+  const handleSubmit = async (e) => {
+    if (userType == "Admin" && secretKey != "POONAM") {
+      e.preventDefault();
+      alert("Invalid Admin");
+    } else {
+      e.preventDefault();
+      try {
+        const response = await fetch("http://localhost:7000/api/createuser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: credentials.name,
+            email: credentials.email,
+            password: credentials.password,
+            location: credentials.geolocation,
+            userType,
+          }),
+        });
+        const json = await response.json();
+
+        if (response.ok && json.success) {
+          // Registration successful
+          alert("Registration successful");
+          // Navigate to the login page
+          window.location.href = "/login";
+        } else if (!response.ok) {
+          // Handle non-2xx HTTP responses
+          const errorMessage = json.message || "Registration failed";
+          alert(errorMessage);
+        } else {
+          // Registration failed
+          const errorMessage = json.message || "Enter Valid Credentials";
+          alert(errorMessage);
+        }
+      } catch (error) {
+        // Handle network errors
+        alert("An error occurred while registering. Please try again later.");
       }
-    } catch (error) {
-      // Handle network errors
-      alert("An error occurred while registering. Please try again later.");
     }
   };
 
@@ -62,7 +71,7 @@ const RegisterPage = () => {
             <span className=" text-blue-900 text-7xl font-fantasy gap-4 flex font-bold">
               WELCOME TO{" "}
               <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
-                <span class="relative text-black">Hunger</span>
+                <span className="relative text-black">Hunger</span>
               </span>
               <span className="text-blue-800">Hub</span>
             </span>
@@ -75,10 +84,41 @@ const RegisterPage = () => {
         </div>
         <div className="bg-white p-20 rounded-ee-3xl rounded-se-3xl">
           <form className="w-full">
-            <div className="text-5xl font-bold text-red-600 flex justify-center">
+            <div className="text-4xl font-bold text-red-600 flex justify-center">
               Registration Form
             </div>
+            <div className="text-4xl mt-10 flex">
+              Register as
+              <input
+                type="radio"
+                name="UserType"
+                value="User"
+                onChange={(e) => setUserType(e.target.value)}
+              />
+              User
+              <input
+                type="radio"
+                name="UserType"
+                value="Admin"
+                onChange={(e) => setUserType(e.target.value)}
+              />
+              Admin
+            </div>
             <div className="pt-8 mt-8 text-3xl mt-8">
+              {userType == "Admin" ? (
+                <div>
+                  <label className="font-bold  ">Secret Key</label>
+                  <br />
+
+                  <input
+                    type="text"
+                    placeholder="Secret Key for Admin"
+                    className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                    onChange={(e) => setSecretKey(e.target.value)}
+                  />
+                </div>
+              ) : null}
+
               <div>
                 <label className="font-bold  ">Full Name</label>
                 <br />
