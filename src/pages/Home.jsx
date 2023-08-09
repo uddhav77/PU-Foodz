@@ -5,7 +5,6 @@ import Reviews from "../components/Reviews";
 import profile from "../assets/images/profile.jpg";
 import profile1 from "../assets/images/profile3.jpg";
 import profile2 from "../assets/images/profile2.jpg";
-import about from "../assets/images/about.jpg";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
 
@@ -32,6 +31,9 @@ const Home = () => {
     },
     {
       url: "https://img.freepik.com/free-photo/closeup-shot-deliciously-prepared-chicken-served-with-onions-chili-sauce_181624-61705.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface_140725-14554.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
     },
   ];
 
