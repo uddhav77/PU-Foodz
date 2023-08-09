@@ -21,6 +21,7 @@ function App() {
             <Route path="/order" element={<Order />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/contact" element={<ContactUs />} />
+
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />

@@ -23,11 +23,11 @@ const NavBar = () => {
 
   return (
     <div className="text-white font-sans font-medium flex fixed top-0 w-full justify-between text-4xl bg-cyan-500 shadow-2xl font-sans p-10 z-50">
-      <div className="flex items-center font-bold text-6xl">
+      <div className="flex items-center font-bold text-blue-800 text-6xl">
         <h1>
           <NavLink to="/">
             <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
-              <span class="relative text-black">Hunger</span>
+              <span class="relative text-black">Hunger </span>
             </span>
             Hub
           </NavLink>

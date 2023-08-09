@@ -69,18 +69,22 @@ const LoginPage = () => {
 
   return (
     <div className="h-screen bg-gray-400">
-      <div className="flex p-20 justify-center pt-32">
+      <div className="flex p-20 justify-center  pt-32">
         <div className="relative">
           <img
-            src="https://img.freepik.com/free-photo/iskander-doner-bread-with-katig-table_140725-9835.jpg"
-            className="h-full w-[800px] rounded-ss-3xl rounded-es-3xl"
+            src="https://img.freepik.com/free-photo/top-view-batch-cooking-arrangement-with-healthy-food_23-2149092401.jpg?w=360"
+            className="h-[1060px] w-[800px] rounded-ss-3xl rounded-es-3xl"
           />
-          <div className="absolute top-0 flex flex-col items-center p-8 ml-2 ">
-            <span className=" text-white text-7xl font-fantasy  flex font-bold">
-              WELCOME TO HUNGERHUB
+          <div className="absolute top-[450px] flex flex-col items-center p-8 backdrop-blur-sm bg-white/40 shadow-2xl w-full ">
+            <span className=" text-blue-900 text-7xl font-fantasy gap-4 flex font-bold">
+              WELCOME TO{" "}
+              <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
+                <span class="relative text-black">Hunger</span>
+              </span>
+              <span className="text-blue-800">Hub</span>
             </span>
 
-            <div className="text-3xl text-white mt-8 font-medium text-center mt-[850px]">
+            <div className="text-3xl text-black mt-8 font-medium text-center ">
               "Food may be essential as fule for the body, <br /> but GOOD food
               is fuel for the soul"
             </div>
@@ -99,7 +103,7 @@ const LoginPage = () => {
                 <input
                   type="name"
                   placeholder="Enter your full name"
-                  className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 border-b border-b-red-800 mt-4"
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="name"
                   value={credentials.name}
                   onChange={onChange}
@@ -111,7 +115,7 @@ const LoginPage = () => {
                 <input
                   type="Email"
                   placeholder="Enter your email"
-                  className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 border-b border-b-red-800   mt-4"
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="email"
                   value={credentials.email}
                   onChange={onChange}
@@ -123,14 +127,14 @@ const LoginPage = () => {
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 mt-4 border-b border-b-red-500"
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="password"
                   value={credentials.password}
                   onChange={onChange}
                 />
               </div>
 
-              <div className="flex justify-between items-center mt-4">
+              <div className="flex justify-between items-center mt-6">
                 <label>
                   <input
                     type="checkbox"
@@ -141,10 +145,12 @@ const LoginPage = () => {
                   <span className="ml-2">Remember me</span>
                 </label>
                 <Link to="/forgot-password">
-                  <div className="ml-32 cursor-pointer">Forget Password?</div>
+                  <div className="ml-32 cursor-pointer underline">
+                    Forget Password?
+                  </div>
                 </Link>
               </div>
-              <div className="pt-8">
+              <div className="pt-10">
                 <button
                   className="bg-red-600 p-6 w-full text-white rounded-2xl shadow-2xl "
                   onClick={handleSubmit}

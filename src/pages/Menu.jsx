@@ -73,7 +73,7 @@ const Menu = () => {
                               <img
                                 src={filterItems.img}
                                 alt={filterItems.name}
-                                className="w-[500px] relative h-[400px] shadow-2xl rounded-2xl"
+                                className="w-[500px] relative h-[350px] shadow-2xl rounded-2xl"
                               />
                             </div>
                             <div className="text-center mt-8 bg-red-400 text-white p-2 w-[250px] absolute top-0 right-0">

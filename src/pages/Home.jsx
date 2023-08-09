@@ -12,20 +12,26 @@ import Footer from "../components/Footer";
 const Home = () => {
   const slides = [
     {
-      url: "https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU=",
+      url: "https://img.freepik.com/premium-photo/pot-chicken-curry-with-yellow-plate-food-black-background_854441-41.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
     },
     {
-      url: "https://media.istockphoto.com/photos/spicy-paneer-or-chilli-paneer-or-paneer-tikka-or-cottage-cheese-in-picture-id697316634?b=1&k=20&m=697316634&s=170667a&w=0&h=bctfHdYTz9q2dJUnuxGRDUUwC9UBWjL_oQo5ECVVDAs=",
+      url: "https://img.freepik.com/free-photo/flat-lay-assortment-batch-food-cooked_23-2148765532.jpg?w=2000",
     },
     {
-      url: "https://cdn.pixabay.com/photo/2018/03/23/08/27/thai-fried-rice-3253027__340.jpg",
+      url: "https://img.freepik.com/free-photo/fruit-salad-spilling-floor-was-mess-vibrant-colors-textures-generative-ai_8829-2895.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
     },
 
     {
-      url: "https://media.istockphoto.com/photos/chinese-food-veg-pizza-picture-id1341905237?k=20&m=1341905237&s=612x612&w=0&h=Lbuza1Ig5cC1PwQhqTsq-Uac8hg1W-V0Wx4d4lqDeB0=",
+      url: "https://img.freepik.com/premium-photo/school-lunch-box-with-tasty-food-stationery-color_392895-248.jpg?w=2000",
     },
     {
-      url: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpY2tlbiUyMGZyaWVkJTIwcmljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+      url: "https://img.freepik.com/premium-photo/assorted-indian-recipes-food-various_79295-7226.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/assortment-pieces-cake_114579-30731.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
+    },
+    {
+      url: "https://img.freepik.com/free-photo/closeup-shot-deliciously-prepared-chicken-served-with-onions-chili-sauce_181624-61705.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
     },
   ];
 
@@ -148,7 +154,7 @@ const Home = () => {
             className="h-full w-full bg-local"
             style={{
               backgroundImage:
-                "url(https://media.istockphoto.com/photos/paneer-tikka-at-skewers-in-black-bowl-at-dark-slate-background-paneer-picture-id1186759790?k=20&m=1186759790&s=612x612&w=0&h=e9MlX_7cZtq9_-ORGLPNU27VNP6SvDz7s-iwTxrf7wU=)",
+                "url(https://img.freepik.com/free-photo/healthy-food-lunch-boxes-assortment-view_23-2149060403.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
               filter: "blur(7px)",

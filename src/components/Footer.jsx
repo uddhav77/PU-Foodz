@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="mt-20 bg-cyan-600 text-white  pt-10 pb-10">
         <div className="flex justify-between p-10 pl-32 pr-32">
           <div className="">
-            <div className="text-6xl font-bold">
+            <div className="text-6xl font-bold text-blue-800">
               <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-red-500 relative inline-block">
                 <span class="relative text-black">Hunger</span>
               </span>
@@ -84,7 +84,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className="" />
-        <div className="flex items-center text-3xl mt-10 justify-center gap-2">
+        <div className="flex items-center text-3xl mt-6 justify-center gap-2">
           {" "}
           Copyright {<CgCopyright />}2023. All right Reserved by
           <span className="underline cursor-pointer font-medium ">
