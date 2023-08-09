@@ -11,10 +11,10 @@ import Footer from "../components/Footer";
 const Home = () => {
   const slides = [
     {
-      url: "https://img.freepik.com/premium-photo/pot-chicken-curry-with-yellow-plate-food-black-background_854441-41.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
+      url: "https://img.freepik.com/free-photo/flat-lay-assortment-batch-food-cooked_23-2148765532.jpg?w=2000",
     },
     {
-      url: "https://img.freepik.com/free-photo/flat-lay-assortment-batch-food-cooked_23-2148765532.jpg?w=2000",
+      url: "https://img.freepik.com/premium-photo/pot-chicken-curry-with-yellow-plate-food-black-background_854441-41.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
     },
     {
       url: "https://img.freepik.com/free-photo/fruit-salad-spilling-floor-was-mess-vibrant-colors-textures-generative-ai_8829-2895.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph",
