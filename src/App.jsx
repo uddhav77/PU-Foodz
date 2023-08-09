@@ -11,6 +11,7 @@ import ResetPassword from "./ResetPassword";
 import ContactUs from "./pages/ContactUs";
 import OrderTracking from "./pages/OrderTracking";
 import UserDetails from "./pages/UserDetails";
+import UserInfo from "./pages/Admin/UserInfo";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               element={<ResetPassword />}
             />
             <Route path="/track/:orderId" element={<OrderTracking />} />
+            <Route path="/userinfo" element={<UserInfo />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

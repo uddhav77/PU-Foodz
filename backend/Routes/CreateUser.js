@@ -190,4 +190,13 @@ router.post("/reset-password/:id/:token", async (req, res) => {
   });
 });
 
+router.get("/userInfo", async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+    res.send({ status: "ok", data: allUsers });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;
