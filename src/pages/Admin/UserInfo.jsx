@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
+import SideBar from "./SideBar";
+import AdimNavBar from "./AdimNavBar";
 
 const UserInfo = () => {
   const [data, setData] = useState([]);
@@ -41,39 +43,45 @@ const UserInfo = () => {
   };
 
   return (
-    <div>
-      <div className="text-4xl">User Info</div>
-      <table className="w-[500px] border-2 border-black">
-        <thead>
-          <tr className="border-2 border-black">
-            <th>Id</th>
-            <th>Registered Date</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>UserType</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item._id}>
-              <td>{item._id}</td>
-              <td>{item.date}</td>
-              <td>{item.name}</td>
-              <td>{item.email}</td>
-              <td>{item.location}</td>
-              <td>{item.userType}</td>
-              <td>
-                <AiFillDelete
-                  onClick={() => deleteUser(item._id, item.name)}
-                  className="cursor-pointer"
-                />
-              </td>
+    <div className="flex">
+      <div>
+        <SideBar />
+      </div>
+      <div className="flex flex-col">
+        <AdimNavBar />
+        <div className="text-4xl">User Info</div>
+        <table className="w-[500px] border-2 border-black">
+          <thead>
+            <tr className="border-2 border-black">
+              <th>Id</th>
+              <th>Registered Date</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>UserType</th>
+              <th>Delete</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map((item) => (
+              <tr key={item._id}>
+                <td>{item._id}</td>
+                <td>{item.date}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.location}</td>
+                <td>{item.userType}</td>
+                <td>
+                  <AiFillDelete
+                    onClick={() => deleteUser(item._id, item.name)}
+                    className="cursor-pointer"
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
