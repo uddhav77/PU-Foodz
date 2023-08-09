@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
 
 const UserInfo = () => {
   const [data, setData] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:7000/api/userInfo");
+      const value = await response.json();
+      setData(value.data);
+    } catch (error) {
+      console.log("Error occurred", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:7000/api/userInfo");
-        const value = await response.json();
-        setData(value.data); // Assuming the server returns an object with a "data" property
-      } catch (error) {
-        console.log("Error occurred", error);
-      }
-    };
     fetchData();
   }, []);
+
+  const deleteUser = (id, name) => {
+    if (window.confirm(`Are you sure you want to delete ${name}?`)) {
+      fetch("http://localhost:7000/api/deleteUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          alert(data.data);
+          fetchData(); // Refresh data after deletion
+        })
+        .catch((error) => {
+          console.error("Error deleting user", error);
+        });
+    }
+  };
 
   return (
     <div>
@@ -40,7 +64,12 @@ const UserInfo = () => {
               <td>{item.email}</td>
               <td>{item.location}</td>
               <td>{item.userType}</td>
-              <td>Delete Button</td>
+              <td>
+                <AiFillDelete
+                  onClick={() => deleteUser(item._id, item.name)}
+                  className="cursor-pointer"
+                />
+              </td>
             </tr>
           ))}
         </tbody>

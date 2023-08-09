@@ -199,4 +199,14 @@ router.get("/userInfo", async (req, res) => {
   }
 });
 
+router.post("/deleteUser", async (req, res) => {
+  const { id } = req.body;
+  try {
+    await User.deleteOne({ _id: id });
+    res.json({ status: "ok", data: "Deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", data: "Internal server error" });
+  }
+});
 module.exports = router;
