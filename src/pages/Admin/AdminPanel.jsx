@@ -37,35 +37,28 @@ const AdminPanel = () => {
         <div className="text-5xl flex flex-col">
           <AdimNavBar />
           <div className="flex flex-wrap">
-            <div className="h-[700px] w-[749px] w-full p-24 mt-8 relative ml-24">
+            <div className="h-[700px] w-[800px]  p-24 mt-8 relative ml-24">
               <div
                 className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
                 style={{
                   backgroundImage:
                     "url(https://img.freepik.com/free-vector/profile-icons-pack-hand-drawn-style_52683-72294.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph)",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
               ></div>
               <div className=" absolute top-[300px]  backdrop-blur-md bg-white/30 p-4 font-bold w-[560px] flex justify-center  ">
                 <Link to="/userinfo">Total User: {totalUsers}</Link>
               </div>
-            </div>
-            <div>
-              {" "}
-              <div className="h-[700px] w-[200px] w-full p-24 mt-8 relative">
-                <div
-                  className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
-                  style={{
-                    backgroundImage:
-                      "url(https://img.freepik.com/premium-photo/buffet-food-catering-food-party-made-by-aiartificial-intelligence_41969-12071.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <div className=" absolute top-[300px]  backdrop-blur-md bg-white/30 p-4 font-bold w-[560px] flex justify-center  ">
-                  <Link to="/admincategories">Total Categories</Link>
-                </div>
+            </div>{" "}
+            <div className="h-[700px] w-[800px] p-24 mt-8 relative">
+              <div
+                className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
+                style={{
+                  backgroundImage:
+                    "url(https://img.freepik.com/premium-photo/buffet-food-catering-food-party-made-by-aiartificial-intelligence_41969-12071.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
+                }}
+              ></div>
+              <div className=" absolute top-[300px]  backdrop-blur-md bg-white/30 p-4 font-bold w-[608px] flex justify-center  ">
+                <Link to="/admincategories">Total Categories</Link>
               </div>
             </div>
           </div>
