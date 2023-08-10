@@ -30,13 +30,13 @@ const AdminPanel = () => {
 
   return (
     <>
-      <div className="flex ">
+      <div className="flex w-full">
         <div>
           <SideBar />
         </div>
         <div className="text-5xl flex flex-col">
           <AdimNavBar />
-          <div className="flex flex-wrap">
+          <div className="flex  flex-wrap">
             <div className="h-[700px] w-[800px]  p-24 mt-8 relative ml-24">
               <div
                 className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
