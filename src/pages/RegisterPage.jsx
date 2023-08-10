@@ -87,13 +87,14 @@ const RegisterPage = () => {
             <div className="text-4xl font-bold text-red-600 flex justify-center">
               Registration Form
             </div>
-            <div className="text-4xl mt-10 flex">
+            <div className="text-3xl mt-10 flex gap-6 font-medium">
               Register as
               <input
                 type="radio"
                 name="UserType"
                 value="User"
                 onChange={(e) => setUserType(e.target.value)}
+                style={{ transform: "scale(1.5)" }} // You can adjust the scale value to change the size
               />
               User
               <input
@@ -101,6 +102,7 @@ const RegisterPage = () => {
                 name="UserType"
                 value="Admin"
                 onChange={(e) => setUserType(e.target.value)}
+                style={{ transform: "scale(1.5)" }} // You can adjust the scale value to change the size
               />
               Admin
             </div>
@@ -119,7 +121,7 @@ const RegisterPage = () => {
                 </div>
               ) : null}
 
-              <div>
+              <div className="mt-6">
                 <label className="font-bold  ">Full Name</label>
                 <br />
 

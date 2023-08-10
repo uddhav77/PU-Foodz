@@ -5,7 +5,7 @@ import { BsMenuButtonWideFill } from "react-icons/bs";
 import { FaUserTag } from "react-icons/fa";
 import { AiOutlineOrderedList } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import AdimNavBar from "./AdimNavBar";
+import { MdOutlineMenuBook } from "react-icons/md";
 
 const SideBar = () => {
   return (
@@ -23,7 +23,7 @@ const SideBar = () => {
         </div>
         <div className="mt-20 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
           <BiSolidDashboard
-            className={` text-6xl rounded cursor-pointer block float-left me-2 duration-500 ${
+            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
               open && "rotate-[360deg]"
             }`}
           />
@@ -36,22 +36,8 @@ const SideBar = () => {
           </h1>
         </div>
         <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <BsMenuButtonWideFill
-            className={` text-6xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            Menu
-          </h1>
-        </div>
-        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
           <FaUserTag
-            className={`text-6xl rounded cursor-pointer block float-left me-2 duration-500 ${
+            className={`text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
               open && "rotate-[360deg]"
             }`}
           />
@@ -64,8 +50,37 @@ const SideBar = () => {
           </h1>
         </div>
         <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+          <MdOutlineMenuBook
+            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+              open && "rotate-[360deg]"
+            }`}
+          />
+          <h1
+            className={`text-white origin-left font-medium text-4xl duration-300 ${
+              !open && "scale-0"
+            }`}
+          >
+            <Link to="/admincategories">Categories</Link>
+          </h1>
+        </div>
+        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+          <BsMenuButtonWideFill
+            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+              open && "rotate-[360deg]"
+            }`}
+          />
+          <h1
+            className={`text-white origin-left font-medium text-4xl duration-300 ${
+              !open && "scale-0"
+            }`}
+          >
+            Menu
+          </h1>
+        </div>
+
+        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
           <AiOutlineOrderedList
-            className={` text-6xl rounded cursor-pointer block float-left me-2 duration-500 ${
+            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
               open && "rotate-[360deg]"
             }`}
           />

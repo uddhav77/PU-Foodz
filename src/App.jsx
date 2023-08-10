@@ -13,6 +13,7 @@ import OrderTracking from "./pages/OrderTracking";
 import UserDetails from "./pages/UserDetails";
 import UserInfo from "./pages/Admin/UserInfo";
 import AdminPanel from "./pages/Admin/AdminPanel";
+import AdminCategories from "./pages/Admin/AdminCategories";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/track/:orderId" element={<OrderTracking />} />
             <Route path="/userinfo" element={<UserInfo />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/admincategories" element={<AdminCategories />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

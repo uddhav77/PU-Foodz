@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Home from "./Home";
 import { useNavigate } from "react-router-dom";
 import AdminPanel from "./Admin/AdminPanel";
-import SideBar from "./Admin/SideBar";
 
 export default function UserDetails() {
   const [userData, setUserData] = useState("");
@@ -42,5 +41,5 @@ export default function UserDetails() {
 
   console.log("Admin Status:", admin);
 
-  return <div>{admin ? <SideBar /> : <Home />}</div>;
+  return <div>{admin ? <AdminPanel /> : <Home />}</div>;
 }
