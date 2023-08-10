@@ -89,7 +89,7 @@ const SideBar = () => {
               !open && "scale-0"
             }`}
           >
-            Order
+            <Link to="/orderInfo">Order</Link>
           </h1>
         </div>
       </div>
