@@ -15,6 +15,8 @@ import UserInfo from "./pages/Admin/UserInfo";
 import AdminPanel from "./pages/Admin/AdminPanel";
 import AdminCategories from "./pages/Admin/AdminCategories";
 import OrderInfo from "./pages/Admin/OrderInfo";
+import AdminMenu from "./pages/Admin/AdminMenu";
+import Update from "./pages/Admin/Update";
 
 function App() {
   return (
@@ -39,7 +41,9 @@ function App() {
             <Route path="/userinfo" element={<UserInfo />} />
             <Route path="/orderinfo" element={<OrderInfo />} />
             <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/adminmenu" element={<AdminMenu />} />
             <Route path="/admincategories" element={<AdminCategories />} />
+            <Route path="/update/:id" element={<Update />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
