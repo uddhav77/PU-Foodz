@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import SideBar from "./SideBar";
 import AdimNavBar from "./AdimNavBar";
 import ReactPaginate from "react-paginate";
+import "tailwindcss/tailwind.css";
 
 const OrderInfo = () => {
   const [data, setData] = useState([]);
@@ -61,7 +62,7 @@ const OrderInfo = () => {
       <div className="">
         <AdimNavBar />
         <div className="p-8">
-          {loading ? ( // Display loading indicator while loading
+          {loading ? (
             <p className="text-3xl font-bold text-gray-600">Loading...</p>
           ) : (
             data.map((order, index) => (
@@ -142,21 +143,29 @@ const OrderInfo = () => {
           previousLabel="< previous"
           renderOnZeroPageCount={null}
           marginPagesDisplayed={2}
-          containerClassName="pagination justify-center" // Tailwind classes
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          activeClassName="active"
+          containerClassName="flex items-center text-3xl justify-center mt-4" // Apply Tailwind classes
+          pageClassName="inline-block mx-1"
+          pageLinkClassName="px-3 py-2 rounded-full bg-gray-300 hover:bg-gray-400"
+          previousClassName="inline-block mx-1"
+          previousLinkClassName="px-3 py-2 rounded-full bg-gray-300 hover:bg-gray-400"
+          nextClassName="inline-block mx-1"
+          nextLinkClassName="px-3 py-2 rounded-full bg-gray-300 hover:bg-gray-400"
+          activeClassName="bg-blue-500 text-white px-3 py-2 rounded-full"
           forcePage={currentPage.current - 1}
         />
-        <input
-          placeholder="set the limits"
-          onChange={(e) => setLimit(e.target.value)}
-        />
-        <button onClick={changeLimit}>Set Limits</button>
+        <div className="mt-6 text-center text-3xl">
+          <input
+            placeholder="Set the limits"
+            onChange={(e) => setLimit(e.target.value)}
+            className="border rounded p-2"
+          />
+          <button
+            onClick={changeLimit}
+            className="bg-blue-500 text-white px-4 py-2 rounded ml-2"
+          >
+            Set Limits
+          </button>
+        </div>
       </div>
     </div>
   );
