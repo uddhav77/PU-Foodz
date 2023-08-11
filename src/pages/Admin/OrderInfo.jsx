@@ -32,21 +32,29 @@ const OrderInfo = () => {
             <div key={index}>
               <h3>Email: {order.email}</h3>
               <div>
-                {order.order_data.map((item, subIndex) => (
-                  <div key={subIndex}>
-                    <h4>Order {subIndex + 1}:</h4>
-                    <p>Name: {item[0].name}</p>
-                    <img
-                      src={item[0].img}
-                      alt={item[0].name}
-                      className="h-10 w-10"
-                    />
-                    <p>Price: {item[0].price}</p>
-                    <p>Quantity: {item[0].qty}</p>
-                    <p>Size: {item[0].size}</p>
-                    <p>Order Date: {item.order_date}</p>
-                  </div>
-                ))}
+                {order.order_data.length > 0 && (
+                  <>
+                    {order.order_data.map((item, subIndex) => (
+                      <div key={subIndex}>
+                        <h4>Order {subIndex + 1}:</h4>
+                        {Object.values(item).map((items, itemIndex) => (
+                          <div key={itemIndex}>
+                            <p>Name: {items.name}</p>
+                            <img
+                              src={items.img}
+                              alt={items.name}
+                              className="h-10 w-10"
+                            />
+                            <p>Price: {items.price}</p>
+                            <p>Quantity: {items.qty}</p>
+                            <p>Size: {items.size}</p>
+                          </div>
+                        ))}
+                        <p>Order Date: {item.Order_date}</p>
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           ))}
