@@ -1,42 +1,57 @@
 const express = require("express");
-const FoodMenu = require("../models/FoodMenu");
 const router = express.Router();
 
+// Assume global.food_items is your food data stored in the global state
+
 // GET route to fetch food menu data
-router.get("/foodMenu", async (req, res) => {
-  try {
-    const data = global.food_items;
+router.get("/foodMenu", async(req, res) => {
+    try {
+        const data = global.food_items;
 
-    if (!data || data.length === 0) {
-      return res.status(404).json({ error: "Food categories not found" });
+        if (!data || data.length === 0) {
+            return res.status(404).json({ error: "Food categories not found" });
+        }
+
+        res.json(data);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "Server Error" });
     }
-
-    res.json(data);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ error: "Server Error" });
-  }
 });
 
 // PUT route to update a menu item
+router.put("/foodMenu/:id", async(req, res) => {
+    try {
+        const itemId = req.params.id;
 
-router.put("/foodMenu/:id", async (req, res) => {
-  try {
-    const data = global.food_items;
-    const itemId = req.params.id;
-    const item = await data.findByIdAndUpdate(itemId, req.body, {
-      new: true,
-    });
+        // Check if global.food_items is defined and is an array
+        if (!global.food_items || !Array.isArray(global.food_items)) {
+            return res.status(500).send("Food items data is not properly initialized.");
+        }
 
-    if (item) {
-      res.send(item);
-    } else {
-      res.status(404).send("Item not found.");
+        // Convert the itemId to ObjectId type if it's stored as a string
+        const ObjectId = require("mongoose").Types.ObjectId;
+        const objectId = new ObjectId(itemId);
+
+        // Find the index of the item to update
+        const itemIndex = global.food_items.findIndex(item => item._id.toString() === objectId.toString());
+
+        if (itemIndex !== -1) {
+            // Update the item in the global state
+            global.food_items[itemIndex] = {...global.food_items[itemIndex], ...req.body };
+            res.send(global.food_items[itemIndex]);
+        } else {
+            res.status(404).send("Item not found.");
+        }
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Server Error");
     }
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Error");
-  }
 });
+
+
+
+
+
 
 module.exports = router;
