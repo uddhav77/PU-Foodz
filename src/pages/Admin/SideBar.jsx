@@ -21,48 +21,54 @@ const SideBar = () => {
           </span>
           <span className="font-bold text-blue-800 text-7xl">Hub</span>
         </div>
-        <div className="mt-20 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <BiSolidDashboard
-            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            <Link to="/admin">DashBoard</Link>
-          </h1>
-        </div>
-        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <FaUserTag
-            className={`text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            <Link to="/userinfo">User</Link>
-          </h1>
-        </div>
-        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <MdOutlineMenuBook
-            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            <Link to="/admincategories">Categories</Link>
-          </h1>
-        </div>
+        <Link to="/admin">
+          <div className="mt-20 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <BiSolidDashboard
+              className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              DashBoard
+            </h1>
+          </div>
+        </Link>
+        <Link to="/userinfo">
+          <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <FaUserTag
+              className={`text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              User
+            </h1>
+          </div>
+        </Link>
+        <Link to="/admincategories">
+          <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <MdOutlineMenuBook
+              className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              Categories
+            </h1>
+          </div>
+        </Link>
         <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
           <BsMenuButtonWideFill
             className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
@@ -77,21 +83,22 @@ const SideBar = () => {
             Menu
           </h1>
         </div>
-
-        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <AiOutlineOrderedList
-            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            <Link to="/orderInfo">Order</Link>
-          </h1>
-        </div>
+        <Link to="/orderInfo">
+          <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <AiOutlineOrderedList
+              className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              Order
+            </h1>
+          </div>
+        </Link>
       </div>
     </div>
   );
