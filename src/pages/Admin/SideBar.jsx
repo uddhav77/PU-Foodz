@@ -69,20 +69,22 @@ const SideBar = () => {
             </h1>
           </div>
         </Link>
-        <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
-          <BsMenuButtonWideFill
-            className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={`text-white origin-left font-medium text-4xl duration-300 ${
-              !open && "scale-0"
-            }`}
-          >
-            Menu
-          </h1>
-        </div>
+        <Link to="/adminmenu">
+          <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <BsMenuButtonWideFill
+              className={` text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              Menu
+            </h1>
+          </div>
+        </Link>
         <Link to="/orderInfo">
           <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
             <AiOutlineOrderedList

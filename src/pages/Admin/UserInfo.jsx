@@ -7,7 +7,7 @@ const UserInfo = () => {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(true); // New loading state
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -15,10 +15,10 @@ const UserInfo = () => {
       const value = await response.json();
       setData(value.data);
       setSearchResults(value.data);
-      setLoading(false); // Set loading to false when data is fetched
+      setLoading(false);
     } catch (error) {
       console.log("Error occurred", error);
-      setLoading(false); // Set loading to false even if there's an error
+      setLoading(false);
     }
   };
 
@@ -40,7 +40,7 @@ const UserInfo = () => {
         .then((res) => res.json())
         .then((data) => {
           alert(data.data);
-          fetchData(); // Refresh data after deletion
+          fetchData();
         })
         .catch((error) => {
           console.error("Error deleting user", error);
@@ -88,7 +88,7 @@ const UserInfo = () => {
             </button>
           </div>
           <div className="mt-8">
-            {loading ? ( // Display loading indicator while loading
+            {loading ? (
               <p className="text-3xl font-bold text-gray-600">Loading...</p>
             ) : searchResults.length === 0 ? (
               <p className="text-red-500 text-4xl">User not found.</p>

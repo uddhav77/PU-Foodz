@@ -26,6 +26,7 @@ app.use("/api", require("./Routes/DisplayData"));
 app.use("/api", require("./Routes/OrderData"));
 app.use("/api", require("./Routes/FoodData"));
 app.use("/api", require("./Routes/FoodCategoryData"));
+app.use("/api", require("./Routes/FoodMenuData"));
 app.use("/api", require("./Routes/Pagination"));
 
 app.listen(port, () => {
