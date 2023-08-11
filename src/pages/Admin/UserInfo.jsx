@@ -46,11 +46,12 @@ const UserInfo = () => {
   };
 
   const handleSearch = () => {
-    if (searchTerm === "") {
+    const searchTermLowerCase = searchTerm.toLowerCase();
+    if (searchTermLowerCase === "") {
       setSearchResults(data);
     } else {
       const filteredResults = data.filter((item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        item.name.toLowerCase().includes(searchTermLowerCase)
       );
       setSearchResults(filteredResults);
     }
@@ -165,7 +166,7 @@ const UserInfo = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((item) => (
+                    {searchResults.map((item) => (
                       <tr key={item._id} className="text-2xl">
                         <td
                           style={{

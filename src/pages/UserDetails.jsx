@@ -29,7 +29,7 @@ export default function UserDetails() {
         if (data.status === "error" && data.data === "token expired") {
           alert("Token expired, please log in again");
           window.localStorage.clear();
-          navigate("/userDetails");
+          // navigate("/userDetails");
         } else {
           setUserData(data.data);
         }
