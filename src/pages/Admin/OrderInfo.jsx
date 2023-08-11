@@ -1,27 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SideBar from "./SideBar";
 import AdimNavBar from "./AdimNavBar";
+import ReactPaginate from "react-paginate";
 
 const OrderInfo = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [limit, setLimit] = useState(1);
+  const [pageCount, setCountPage] = useState(1);
+  const currentPage = useRef();
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:7000/api/orderInfo");
-        const value = await response.json();
-        console.log(value);
-        setData(value.data);
-        setLoading(false); // Set loading to false when data is fetched
-      } catch (err) {
-        console.log("Error Occurred", err);
-        setLoading(false); // Set loading to false even if there's an error
-      }
-    };
+    const storedPage = sessionStorage.getItem("currentPage");
+    const storedLimit = sessionStorage.getItem("currentLimit");
+
+    currentPage.current = storedPage ? parseInt(storedPage) : 1;
+    setLimit(storedLimit || 1);
 
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:7000/api/paginatedUser?page=${currentPage.current}&limit=${limit}`,
+        {
+          method: "GET",
+        }
+      );
+      const value = await response.json();
+      console.log(value);
+      setCountPage(value.pageCount);
+      setData(value.result);
+      setLoading(false);
+    } catch (err) {
+      console.log("Error Occurred", err);
+      setLoading(false);
+    }
+  };
+
+  const handlePageClick = (e) => {
+    console.log(e);
+    currentPage.current = e.selected + 1;
+    sessionStorage.setItem("currentPage", currentPage.current);
+    fetchData();
+  };
+
+  const changeLimit = () => {
+    currentPage.current = 1;
+    sessionStorage.setItem("currentLimit", limit);
+    fetchData();
+  };
 
   return (
     <div className="flex">
@@ -103,6 +133,30 @@ const OrderInfo = () => {
             ))
           )}
         </div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          marginPagesDisplayed={2}
+          containerClassName="pagination justify-center" // Tailwind classes
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          activeClassName="active"
+          forcePage={currentPage.current - 1}
+        />
+        <input
+          placeholder="set the limits"
+          onChange={(e) => setLimit(e.target.value)}
+        />
+        <button onClick={changeLimit}>Set Limits</button>
       </div>
     </div>
   );
