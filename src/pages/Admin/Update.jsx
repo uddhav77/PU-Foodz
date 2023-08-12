@@ -1,7 +1,7 @@
 // UpdateFoodItem.js
 
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SideBar from "./SideBar";
 import AdimNavBar from "./AdimNavBar";
 
@@ -111,6 +111,12 @@ function Update() {
               Update Item
             </button>
           </form>
+          <Link
+            to="/adminmenu"
+            className="block mt-4 text-gray-700 text-3xl hover:underline"
+          >
+            Back to Admin Menu
+          </Link>
         </div>
       </div>
     </div>

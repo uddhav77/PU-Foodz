@@ -67,92 +67,97 @@ const UserInfo = () => {
       </div>
       <div className="flex flex-col">
         <AdimNavBar />
-
-        <div className="p-8">
-          <div className="text-5xl text-center underline font-bold text-red-600">
-            User Info
-          </div>
-          <div className="mt-10 flex justify-center space-x-4">
-            <input
-              type="text"
-              placeholder="Search by name..."
-              className="p-4 border text-3xl border-2 border-red-400 shadow-xl hover:border-red-500 focus:border-red-500 w-[650px] border-gray-300 outline-none focus:ring focus:ring-red-500"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button
-              className="p-4 bg-blue-500 text-3xl text-white hover:bg-blue-600 focus:bg-blue-600 focus:outline-none rounded-md"
-              onClick={handleSearch}
-            >
-              Search
-            </button>
-          </div>
-          <div className="mt-8">
-            {loading ? (
-              <p className="text-3xl font-bold text-gray-600">Loading...</p>
-            ) : searchResults.length === 0 ? (
-              <p className="text-red-500 text-4xl">User not found.</p>
-            ) : (
-              <div className="mt-10">
-                <table className="w-full border-collapse border-2 shadow-2xl border-gray-600 mt-8">
-                  <thead>
-                    <tr className="text-3xl">
-                      <th className="border border-gray-600 p-4 bg-red-500 text-white font-bold">
-                        Id
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        Registered Date
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        Name
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        Email
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        Address
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        UserType
-                      </th>
-                      <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
-                        Delete
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {searchResults.map((item) => (
-                      <tr key={item._id} className="text-2xl">
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item._id}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item.date}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item.name}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item.email}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item.location}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          {item.userType}
-                        </td>
-                        <td className="border border-gray-600 py-2 px-4">
-                          <AiFillDelete
-                            onClick={() => deleteUser(item._id, item.name)}
-                            className="cursor-pointer text-red-600"
-                          />
-                        </td>
+        <div className="relative flex justify-center ">
+          <img
+            src="https://img.freepik.com/free-photo/colorful-round-lollipop-candies-blue-background_23-2147866143.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
+            className="h-[1218px] w-full"
+          />
+          <div className="p-8 absolute top-0">
+            <div className="text-5xl text-center underline font-bold text-red-600">
+              User Info
+            </div>
+            <div className="mt-10 flex justify-center space-x-4">
+              <input
+                type="text"
+                placeholder="Search by name..."
+                className="p-4 border text-3xl border-2 border-red-400 shadow-xl hover:border-red-500 focus:border-red-500 w-[650px] border-gray-300 outline-none focus:ring focus:ring-red-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button
+                className="p-4 bg-blue-500 text-3xl text-white hover:bg-blue-600 focus:bg-blue-600 focus:outline-none rounded-md"
+                onClick={handleSearch}
+              >
+                Search
+              </button>
+            </div>
+            <div className="mt-8">
+              {loading ? (
+                <p className="text-3xl font-bold text-gray-600">Loading...</p>
+              ) : searchResults.length === 0 ? (
+                <p className="text-red-500 text-4xl">User not found.</p>
+              ) : (
+                <div className="mt-10">
+                  <table className="w-full border-collapse border-2 shadow-2xl border-gray-600 mt-8">
+                    <thead>
+                      <tr className="text-3xl">
+                        <th className="border border-gray-600 p-4 bg-red-500 text-white font-bold">
+                          Id
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          Registered Date
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          Name
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          Email
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          Address
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          UserType
+                        </th>
+                        <th className="border border-gray-600 py-2 px-4 bg-red-500 text-white font-bold">
+                          Delete
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
+                    </thead>
+                    <tbody>
+                      {searchResults.map((item) => (
+                        <tr key={item._id} className="text-2xl">
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item._id}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item.date}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item.name}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item.email}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item.location}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            {item.userType}
+                          </td>
+                          <td className="border border-gray-600 py-2 px-4">
+                            <AiFillDelete
+                              onClick={() => deleteUser(item._id, item.name)}
+                              className="cursor-pointer text-red-600"
+                            />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
