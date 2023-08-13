@@ -56,67 +56,78 @@ function Update() {
       </div>
       <div className="flex flex-col">
         <AdimNavBar />
-        <div className="p-8">
-          <h1 className="text-4xl font-semibold mb-4 text-red-400">
-            Update Food Item
-          </h1>
-          <form onSubmit={handleUpdate} className="space-y-4 text-3xl">
-            <label htmlFor="itemName" className="block font-medium">
-              Item Name:
-            </label>
-            <input
-              type="text"
-              id="itemName"
-              value={itemName}
-              onChange={(e) => setItemName(e.target.value)}
-              className="border p-2 rounded-md w-full"
-            />
 
-            <label htmlFor="itemOptionsHalf" className="block font-medium">
-              Half Options:
-            </label>
-            <input
-              type="text"
-              id="itemOptionsHalf"
-              value={itemOptionsHalf}
-              onChange={(e) => setItemOptionsHalf(e.target.value)}
-              className="border p-2 rounded-md w-full"
-            />
-
-            <label htmlFor="itemOptionsFull" className="block font-medium">
-              Full Options:
-            </label>
-            <input
-              type="text"
-              id="itemOptionsFull"
-              value={itemOptionsFull}
-              onChange={(e) => setItemOptionsFull(e.target.value)}
-              className="border p-2 rounded-md w-full"
-            />
-            <label htmlFor="description" className="block font-medium">
-              Descriptions:
-            </label>
-            <textarea
-              type="text"
-              value={description}
-              id="description"
-              onChange={(e) => setDescription(e.target.value)}
-              className="border p-2 rounded-md w-full"
-            />
-
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        <div className="relative ">
+          <img
+            src="https://img.freepik.com/free-photo/flat-lay-breakfast-composition-with-copyspace_23-2148200688.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
+            className="h-[1218px] w-full"
+          />
+          <div className="p-8 absolute top-0 mt-28 flex flex-col items-center justify-center">
+            <form
+              onSubmit={handleUpdate}
+              className="space-y-4 text-3xl backdrop-blur-md bg-white/30 mt-4 ml-[500px] shadow-2xl rounded-xl p-16 "
             >
-              Update Item
-            </button>
-          </form>
-          <Link
-            to="/adminmenu"
-            className="block mt-4 text-gray-700 text-3xl hover:underline"
-          >
-            Back to Admin Menu
-          </Link>
+              <h1 className="text-5xl font-bold mb-4 text-red-400 text-center">
+                Update Food Item
+              </h1>
+              <label htmlFor="itemName" className="block font-medium">
+                Item Name:
+              </label>
+              <input
+                type="text"
+                id="itemName"
+                value={itemName}
+                onChange={(e) => setItemName(e.target.value)}
+                className="border w-[900px]  hover:shadow-2xl p-4 rounded-xl backdrop-blur-sm bg-white/90 focus:outline-none focus:ring focus:border-blue-300"
+              />
+
+              <label htmlFor="itemOptionsHalf" className="block font-medium">
+                Half Price:
+              </label>
+              <input
+                type="text"
+                id="itemOptionsHalf"
+                value={itemOptionsHalf}
+                onChange={(e) => setItemOptionsHalf(e.target.value)}
+                className="border p-2 w-[900px]  hover:shadow-2xl p-4 rounded-xl backdrop-blur-sm bg-white/90 focus:outline-none focus:ring focus:border-blue-300"
+              />
+
+              <label htmlFor="itemOptionsFull" className="block font-medium">
+                Full Price:
+              </label>
+              <input
+                type="text"
+                id="itemOptionsFull"
+                value={itemOptionsFull}
+                onChange={(e) => setItemOptionsFull(e.target.value)}
+                className="border  w-[900px]  hover:shadow-2xl p-4 rounded-xl backdrop-blur-sm bg-white/90 focus:outline-none focus:ring focus:border-blue-300"
+              />
+              <label htmlFor="description" className="block font-medium">
+                Descriptions:
+              </label>
+              <textarea
+                type="text"
+                value={description}
+                id="description"
+                onChange={(e) => setDescription(e.target.value)}
+                className="border  rounded-md w-[900px]  hover:shadow-2xl p-6 rounded-xl backdrop-blur-sm bg-white/90 focus:outline-none focus:ring focus:border-blue-300"
+              />
+              <div>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white p-4 font-bold rounded-md hover:bg-blue-600"
+                >
+                  Update Item
+                </button>
+              </div>
+              <Link
+                to="/adminmenu"
+                className="block text-gray-700 text-red-400 font-bold text-center  text-4xl underline"
+              >
+                Back to Admin Menu
+              </Link>
+            </form>
+          </div>
         </div>
       </div>
     </div>

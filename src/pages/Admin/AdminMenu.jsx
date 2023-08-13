@@ -65,7 +65,7 @@ const AdminMenu = () => {
           {data.map((item) => (
             <div
               key={item._id}
-              className="bg-gray-400 rounded-lg cursor-pointer shadow-md flex flex-col gap-6 p-4 transition duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="bg-gray-300 rounded-lg cursor-pointer shadow-md flex flex-col gap-6 p-4 transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               <img
                 src={item.img}
