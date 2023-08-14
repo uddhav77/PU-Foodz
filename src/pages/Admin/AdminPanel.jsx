@@ -96,10 +96,10 @@ const AdminPanel = () => {
               className="h-[1218px] w-full"
             />
             <div className="absolute top-0">
-              <h1 className="text-6xl font-bold text-red-500 underline text-center mt-8">
+              <h1 className="text-6xl font-bold text-red-500 underline text-center mt-52">
                 DashBoard
               </h1>
-              <div className="flex flex-wrap gap-24">
+              <div className="flex flex-wrap gap-24 ">
                 {/* Total Users */}
                 <div className="h-[350px] w-[400px] mt-14 relative ml-24">
                   <div
@@ -155,9 +155,9 @@ const AdminPanel = () => {
                     <Link to="/adminmenu">Total Menu: {totalMenu}</Link>
                   </div>
                 </div>
-                <div className="ml-24">
+                {/* <div className="ml-24">
                   <ProgressBar />
-                </div>
+                </div> */}
                 {/* <div>
               <ChartBar />
             </div> */}

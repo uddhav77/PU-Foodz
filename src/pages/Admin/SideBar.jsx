@@ -5,6 +5,7 @@ import { BsMenuButtonWideFill } from "react-icons/bs";
 import { FaUserTag } from "react-icons/fa";
 import { AiOutlineOrderedList } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdOutlineMenuBook } from "react-icons/md";
 
 const SideBar = () => {
@@ -82,6 +83,22 @@ const SideBar = () => {
               }`}
             >
               Menu
+            </h1>
+          </div>
+        </Link>
+        <Link to="/addmenu">
+          <div className="mt-10 flex items-center gap-4 backdrop-blur-md bg-white/30 p-4 rounded-xl shadow-xl hover:backdrop-blur-xl hover:bg-white/40 hover:shadow-2xl">
+            <MdOutlineAddShoppingCart
+              className={`text-5xl rounded cursor-pointer block float-left me-2 duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
+            />
+            <h1
+              className={`text-white origin-left font-medium text-4xl duration-300 ${
+                !open && "scale-0"
+              }`}
+            >
+              Add a Menu
             </h1>
           </div>
         </Link>

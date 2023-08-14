@@ -62,6 +62,7 @@ const AdminMenu = () => {
           Food Menu
         </div>
         <div className="flex flex-wrap  justify-center pt-10 ml-10 mr-10 text-3xl gap-16">
+          <div></div>
           {data.map((item) => (
             <div
               key={item._id}

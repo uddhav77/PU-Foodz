@@ -17,6 +17,7 @@ import AdminCategories from "./pages/Admin/AdminCategories";
 import OrderInfo from "./pages/Admin/OrderInfo";
 import AdminMenu from "./pages/Admin/AdminMenu";
 import Update from "./pages/Admin/Update";
+import AddMenu from "./pages/Admin/AddMenu";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/adminmenu" element={<AdminMenu />} />
             <Route path="/admincategories" element={<AdminCategories />} />
+            <Route path="/addmenu" element={<AddMenu />} />
             <Route path="/update/:id" element={<Update />} />
           </Routes>
         </BrowserRouter>
