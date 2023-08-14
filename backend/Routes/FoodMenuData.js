@@ -1,4 +1,5 @@
 const express = require("express");
+const FoodMenu = require("../models/FoodMenu");
 const router = express.Router();
 
 // Assume global.food_items is your food data stored in the global state
@@ -18,6 +19,27 @@ router.get("/foodMenu", async(req, res) => {
         res.status(500).json({ error: "Server Error" });
     }
 });
+
+router.post("/foodMenu", async(req, res) => {
+    try {
+        const newFoodMenu = new FoodMenu({
+            CategoryName: req.body.CategoryName,
+            name: req.body.name,
+            img: req.body.img,
+            options: req.body.options,
+            description: req.body.description,
+        });
+
+        await newFoodMenu.save(); // Save to the MongoDB collection
+        global.food_items.push(newFoodMenu); // Update global.foodCategory array
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
+
 
 // PUT route to update a menu item
 router.put("/foodMenu/:id", async(req, res) => {
