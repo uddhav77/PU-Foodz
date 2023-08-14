@@ -71,7 +71,25 @@ router.put("/foodMenu/:id", async(req, res) => {
     }
 });
 
+router.delete("/foodMenu/:id", async(req, res) => {
+    const MenuId = req.params.id;
+    try {
+        const deletedMenu = await FoodMenu.findByIdAndDelete(MenuId);
 
+        if (!deletedMenu) {
+            return res.status(404).json({ error: "Food Menu not found" });
+        }
+
+        global.food_items = global.food_items.filter(
+            (menu) => menu._id.toString() !== MenuId
+        );
+
+        res.json({ success: true, data: "Food Menu Deleted" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
 
 
 

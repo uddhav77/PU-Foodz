@@ -53,6 +53,33 @@ const AdminMenu = () => {
     sessionStorage.setItem("currentPage", currentPage.current);
   }, [currentPage.current]);
 
+  const handleDelete = async (id, CategoryName) => {
+    if (window.confirm(`Are you sure you want to delete ${CategoryName}?`)) {
+      try {
+        const response = await fetch(
+          `http://localhost:7000/api/foodMenu/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const json = await response.json();
+
+        if (response.ok && json.success) {
+          alert("Category Deleted");
+          fetchData();
+        } else {
+          alert("Error Occurred");
+        }
+      } catch (error) {
+        console.error("Error deleting category", error);
+      }
+    }
+  };
+
   return (
     <div className="flex">
       <SideBar />
@@ -98,6 +125,12 @@ const AdminMenu = () => {
                   Update
                 </button>
               </Link>
+              {/* <button
+                onClick={() => handleDelete(item._id, item.CategoryName)}
+                className="p-4 bg-red-500 mt-6 rounded-xl shadow-xl text-white hover:bg-red-600 transition duration-300"
+              >
+                Delete
+              </button> */}
             </div>
           ))}
         </div>

@@ -62,7 +62,7 @@ function Update() {
             src="https://img.freepik.com/free-photo/flat-lay-breakfast-composition-with-copyspace_23-2148200688.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
             className="h-[1218px] w-full"
           />
-          <div className="p-8 absolute top-0 mt-28 flex flex-col items-center justify-center">
+          <div className="p-8 absolute top-0 mt-20 flex flex-col items-center justify-center">
             <form
               onSubmit={handleUpdate}
               className="space-y-4 text-3xl backdrop-blur-md bg-white/30 mt-4 ml-[500px] shadow-2xl rounded-xl p-16 "

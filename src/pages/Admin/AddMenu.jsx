@@ -57,7 +57,7 @@ const AddMenu = () => {
               alt="Food"
               className="h-[1218px] w-full object-cover"
             />
-            <div className="text-3xl mt-4 absolute top-0 ml-[500px]">
+            <div className="text-3xl mt-4 absolute top-0 ml-[550px]">
               <h1 className="text-red-400 underline text-5xl text-center font-bold">
                 Add a Menu
               </h1>
@@ -123,7 +123,7 @@ const AddMenu = () => {
                 />
                 <button
                   onClick={handleClick}
-                  className="ml-2 p-4 rounded-md bg-blue-500 text-white shadow-2xl hover:bg-blue-600 transition duration-300 w-[140px]"
+                  className="ml-2 p-4 rounded-md bg-blue-500 text-white font-bold shadow-2xl hover:bg-blue-600 transition duration-300 w-[140px]"
                 >
                   Add
                 </button>
