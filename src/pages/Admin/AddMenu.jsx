@@ -55,7 +55,7 @@ const AddMenu = () => {
             <img
               src="https://img.freepik.com/free-photo/flat-lay-plate-mussel-pasta-with-copyspace_23-2148234946.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
               alt="Food"
-              className="h-[1218px] w-full object-cover"
+              className="h-[93.5vh] w-full object-cover"
             />
             <div className="text-3xl mt-4 absolute top-0 ml-[550px]">
               <h1 className="text-red-400 underline text-5xl text-center font-bold">

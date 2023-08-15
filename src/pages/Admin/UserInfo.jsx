@@ -70,7 +70,7 @@ const UserInfo = () => {
         <div className="relative flex justify-center ">
           <img
             src="https://img.freepik.com/free-photo/colorful-round-lollipop-candies-blue-background_23-2147866143.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
-            className="h-[1218px] w-full"
+            className="h-[93.5vh] w-full"
           />
           <div className="p-8 absolute top-0">
             <div className="text-5xl text-center underline font-bold text-red-600">

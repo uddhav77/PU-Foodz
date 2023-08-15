@@ -92,7 +92,7 @@ const AdminPanel = () => {
           <div className="relative ">
             <img
               src="https://img.freepik.com/premium-photo/3d-rendering-group-junk-food-3d-illustration-fast-food-concept-copy-space_542094-358.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
-              className="h-[1218px] w-full"
+              className="h-[93.5vh] w-full"
             />
             <div className="absolute top-0">
               <h1 className="text-6xl font-bold text-red-500 underline text-center mt-52">

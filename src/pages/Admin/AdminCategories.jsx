@@ -89,7 +89,7 @@ const AdminCategories = () => {
         <div className="relative ">
           <img
             src="https://img.freepik.com/premium-photo/tasty-burgers-with-beef-tomato-cheese-onion-cucumber-lettuce-blue-background-top-view-copy-space-fast-food-banner-take-away-meal-unhealthy-diet-concept_769609-6400.jpg?w=740"
-            className="h-[1216px] w-full"
+            className="h-[93.5vh] w-full"
           />
           <div className="absolute top-0">
             <div className="text-5xl underline pt-16 font-bold text-red-500 text-center">

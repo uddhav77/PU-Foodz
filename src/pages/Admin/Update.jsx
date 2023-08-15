@@ -60,7 +60,7 @@ function Update() {
         <div className="relative ">
           <img
             src="https://img.freepik.com/free-photo/flat-lay-breakfast-composition-with-copyspace_23-2148200688.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais"
-            className="h-[1218px] w-full"
+            className="h-[93.5vh] w-full"
           />
           <div className="p-8 absolute top-0 mt-20 flex flex-col items-center justify-center">
             <form

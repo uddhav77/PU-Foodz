@@ -21,7 +21,7 @@ import AddMenu from "./pages/Admin/AddMenu";
 
 function App() {
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 w-fit">
       <CartProvider>
         <BrowserRouter>
           <Routes>
