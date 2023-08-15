@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
+import Footer from "../../components/Footer";
+import NavBar from "../../components/NavBar";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import Khalti from "../components/Khalti/Khalti";
 import { Link } from "react-router-dom";
+import Khalti from "../../components/Khalti/Khalti";
 
 export default function Order() {
   const [orderData, setOrderData] = useState([]);

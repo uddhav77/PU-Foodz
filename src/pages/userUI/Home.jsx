@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
-import Services from "../components/Services";
-import Reviews from "../components/Reviews";
-import profile from "../assets/images/profile.jpg";
-import profile1 from "../assets/images/profile3.jpg";
-import profile2 from "../assets/images/profile2.jpg";
-import Categories from "../components/Categories";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Services from "../../components/Services";
+import Reviews from "../../components/Reviews";
+import profile from "../../assets/images/profile.jpg";
+import profile1 from "../../assets/images/profile3.jpg";
+import profile2 from "../../assets/images/profile2.jpg";
+import Categories from "../../components/Categories";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   const slides = [

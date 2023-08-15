@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home";
 import { useNavigate } from "react-router-dom";
-import AdminPanel from "./Admin/AdminPanel";
+import AdminPanel from "../Admin/AdminPanel";
 
 export default function UserDetails() {
   const [userData, setUserData] = useState("");

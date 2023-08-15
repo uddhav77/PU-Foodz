@@ -5,8 +5,8 @@ import { TfiShoppingCartFull } from "react-icons/tfi";
 import { FaRegistered } from "react-icons/fa";
 import { MdOutlineLogout } from "react-icons/md";
 import Modal from "../Modal";
-import Cart from "../pages/Cart";
 import { useCart } from "./ContextReducer";
+import Cart from "../pages/userUI/Cart";
 
 const NavBar = () => {
   let data = useCart();

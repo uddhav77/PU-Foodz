@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);

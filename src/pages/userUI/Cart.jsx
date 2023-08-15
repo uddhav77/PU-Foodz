@@ -1,6 +1,6 @@
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { useCart, useDispatchCart } from "../components/ContextReducer";
+import { useCart, useDispatchCart } from "../../components/ContextReducer";
 
 export default function Cart() {
   let data = useCart();
