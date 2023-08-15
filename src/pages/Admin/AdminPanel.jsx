@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
 import AdimNavBar from "./AdimNavBar";
-import ProgressBar from "./ProgressBar";
-import ChartBar from "./ChartBar";
+// import ChartBar from "./ChartBar";
 
 const AdminPanel = () => {
   const [totalUsers, setTotalUsers] = useState(0);
@@ -159,8 +158,8 @@ const AdminPanel = () => {
                   <ProgressBar />
                 </div> */}
                 {/* <div>
-              <ChartBar />
-            </div> */}
+                  <ChartBar />
+                </div> */}
               </div>
             </div>
           </div>
