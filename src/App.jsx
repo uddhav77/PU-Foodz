@@ -1,16 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Order from "./pages/Order";
-import RegisterPage from "./pages/RegisterPage";
-import LoginPage from "./pages/LoginPage";
-import Menu from "./pages/Menu";
-import Detail from "./pages/Detail";
 import { CartProvider } from "./components/ContextReducer";
-import ForgetPassword from "./pages/ForgetPassword";
-import ResetPassword from "./ResetPassword";
-import ContactUs from "./pages/ContactUs";
-import OrderTracking from "./pages/OrderTracking";
-import UserDetails from "./pages/UserDetails";
 import UserInfo from "./pages/Admin/UserInfo";
 import AdminPanel from "./pages/Admin/AdminPanel";
 import AdminCategories from "./pages/Admin/AdminCategories";
@@ -18,6 +7,17 @@ import OrderInfo from "./pages/Admin/OrderInfo";
 import AdminMenu from "./pages/Admin/AdminMenu";
 import Update from "./pages/Admin/Update";
 import AddMenu from "./pages/Admin/AddMenu";
+import Home from "./pages/userUI/Home";
+import Order from "./pages/userUI/Order";
+import Menu from "./pages/userUI/Menu";
+import ContactUs from "./pages/userUI/ContactUs";
+import UserDetails from "./pages/userUI/UserDetails";
+import Detail from "./pages/userUI/Detail";
+import RegisterPage from "./pages/userUI/RegisterPage";
+import LoginPage from "./pages/userUI/LoginPage";
+import ForgetPassword from "./pages/userUI/ForgetPassword";
+import ResetPassword from "./pages/userUI/ResetPassword";
+import OrderTracking from "./pages/userUI/OrderTracking";
 
 function App() {
   return (
