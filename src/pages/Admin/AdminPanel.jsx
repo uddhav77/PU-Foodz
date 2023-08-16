@@ -101,58 +101,64 @@ const AdminPanel = () => {
               <div className="flex flex-wrap gap-24 ">
                 {/* Total Users */}
                 <div className="h-[350px] w-[400px] mt-14 relative ml-24">
-                  <div
-                    className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
-                    style={{
-                      backgroundImage:
-                        "url(https://img.freepik.com/free-vector/profile-icons-pack-hand-drawn-style_52683-72294.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph)",
-                    }}
-                  ></div>
-                  <div className="absolute top-[150px] backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
-                    <Link to="/userinfo">Total User: {totalUsers}</Link>
-                  </div>
+                  <Link to="/userinfo">
+                    <div
+                      className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://img.freepik.com/free-vector/profile-icons-pack-hand-drawn-style_52683-72294.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=sph)",
+                      }}
+                    ></div>
+                    <div className="absolute top-[150px] backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
+                      Total User: {totalUsers}
+                    </div>
+                  </Link>
                 </div>
 
                 {/* Total Categories */}
                 <div className="h-[350px] w-[400px] mt-14 relative">
-                  <div
-                    className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
-                    style={{
-                      backgroundImage:
-                        "url(https://img.freepik.com/premium-photo/buffet-food-catering-food-party-made-by-aiartificial-intelligence_41969-12071.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
-                    }}
-                  ></div>
-                  <div className="absolute top-[130px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
-                    <Link to="/adminCategories">
+                  <Link to="/adminCategories">
+                    <div
+                      className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://img.freepik.com/premium-photo/buffet-food-catering-food-party-made-by-aiartificial-intelligence_41969-12071.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
+                      }}
+                    ></div>
+                    <div className="absolute top-[130px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
                       Total Categories:{totalCategories}
-                    </Link>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
 
                 {/* Total Orders */}
                 <div className="h-[350px] w-[400px] mt-14 relative">
-                  <div
-                    className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
-                    style={{
-                      backgroundImage:
-                        "url(https://img.freepik.com/premium-vector/mobile-smartphone-with-food-delivery-app-order-food-online-modern-creative-data-graphic-design-application-flat-style-cartoon-illustration-vector_610956-200.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
-                    }}
-                  ></div>
-                  <div className="absolute top-[130px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
-                    <Link to="/orderinfo">Total User Order: {totalOrders}</Link>
-                  </div>
+                  <Link to="/orderinfo">
+                    <div
+                      className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://img.freepik.com/premium-vector/mobile-smartphone-with-food-delivery-app-order-food-online-modern-creative-data-graphic-design-application-flat-style-cartoon-illustration-vector_610956-200.jpg?size=626&ext=jpg&ga=GA1.2.179528119.1684068718&semt=ais)",
+                      }}
+                    ></div>
+                    <div className="absolute top-[130px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
+                      Total User Order: {totalOrders}
+                    </div>
+                  </Link>
                 </div>
                 <div className="h-[350px] w-[400px] mt-14 relative">
-                  <div
-                    className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
-                    style={{
-                      backgroundImage:
-                        "url(https://img.freepik.com/free-photo/top-view-fast-food-mix-mozzarella-sticks-club-sandwich-hamburger-mushroom-pizza-caesar-shrimp-salad-french-fries-ketchup-mayo-cheese-sauces-table_141793-3998.jpg?w=740&t=st=1691813336~exp=1691813936~hmac=0e479ec5ad4d61764eae277eb6bec8ebe557abdb8139d0c6d38d2f7fb4312b79)",
-                    }}
-                  ></div>
-                  <div className="absolute top-[150px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
-                    <Link to="/adminmenu">Total Menu: {totalMenu}</Link>
-                  </div>
+                  <Link to="/adminmenu">
+                    <div
+                      className="h-full w-full bg-local hover:blur-sm rounded-2xl shadow-xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://img.freepik.com/free-photo/top-view-fast-food-mix-mozzarella-sticks-club-sandwich-hamburger-mushroom-pizza-caesar-shrimp-salad-french-fries-ketchup-mayo-cheese-sauces-table_141793-3998.jpg?w=740&t=st=1691813336~exp=1691813936~hmac=0e479ec5ad4d61764eae277eb6bec8ebe557abdb8139d0c6d38d2f7fb4312b79)",
+                      }}
+                    ></div>
+                    <div className="absolute top-[150px] text-center backdrop-blur-md bg-white/30 p-4 font-bold w-[400px] flex justify-center">
+                      Total Menu: {totalMenu}
+                    </div>
+                  </Link>
                 </div>
                 {/* <div className="ml-24">
                   <ProgressBar />

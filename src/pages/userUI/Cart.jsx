@@ -61,7 +61,10 @@ export default function Cart() {
           {data.map((food, index) => (
             <tr key={index} className="text-center text-3xl pt-8 font-cursive">
               <td className="border px-8 py-2 ">{index + 1}</td>
-              <td className="border px-4 py-2">{food.name}</td>
+              <td className="border px-4 py-2 flex items-center gap-4 justify-center">
+                {food.name}{" "}
+                <img src={food.img} alt={food.name} className="h-28 w-32" />
+              </td>
               <td className="border px-4 py-2">{food.qty}</td>
               <td className="border px-4 py-2">{food.size}</td>
               <td className="border px-4 py-2 text-center">{food.price}</td>

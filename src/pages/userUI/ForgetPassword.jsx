@@ -64,6 +64,12 @@ const ForgetPassword = () => {
                   Send
                 </button>
               </div>
+              <div className="mt-8 flex gap-2 justify-end">
+                <span>Back to </span>
+                <Link to="/login">
+                  <div className=" underline font-medium"> Log In</div>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
