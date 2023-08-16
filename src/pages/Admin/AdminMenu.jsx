@@ -119,18 +119,19 @@ const AdminMenu = () => {
                 ))}
               </div>
               <div className="text-2xl w-96 ">{item.description}</div>
-
-              <Link to={`/update/${item._id}`} className=" hover:underline">
-                <button className="bg-blue-600 text-white p-4 shadow-xl rounded-xl font-bold">
-                  Update
+              <div className="flex justify-between">
+                <Link to={`/update/${item._id}`} className=" hover:underline">
+                  <button className="bg-blue-600 text-white p-4 shadow-xl rounded-xl font-bold">
+                    Update
+                  </button>
+                </Link>
+                <button
+                  onClick={() => handleDelete(item._id, item.name)}
+                  className="bg-red-600 text-white p-4 shadow-xl rounded-xl font-bold"
+                >
+                  Delete
                 </button>
-              </Link>
-              <button
-                onClick={() => handleDelete(item._id, item.name)}
-                className="p-4 bg-red-500 mt-6 rounded-xl shadow-xl text-white hover:bg-red-600 transition duration-300"
-              >
-                Delete
-              </button>
+              </div>
             </div>
           ))}
         </div>
