@@ -89,37 +89,38 @@ const AdminMenu = () => {
           Food Menu
         </div>
         <div className="flex flex-wrap  justify-center pt-10 ml-10 mr-10 text-3xl gap-16">
-          <div></div>
           {data.map((item) => (
             <div
               key={item._id}
               className="bg-gray-300 rounded-lg cursor-pointer shadow-md flex flex-col gap-6 p-4 transition duration-300 transform hover:scale-105 hover:shadow-xl"
             >
-              <img
-                src={item.img}
-                alt={item.name}
-                className="h-72 w-96 rounded-2xl"
-              />
-              <div className="text-3xl font-medium">
-                <span className="font-bold text-red-600">Category:</span>{" "}
-                {item.CategoryName}
+              <div className="h-[650px]">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="h-72 w-96 rounded-2xl"
+                />
+                <div className="text-3xl font-medium mt-6">
+                  <span className="font-bold text-red-600">Category:</span>{" "}
+                  {item.CategoryName}
+                </div>
+                <div className="text-3xl font-medium w-96 mt-4">
+                  <span className="font-bold text-red-600 ">Food Name:</span>{" "}
+                  {item.name}
+                </div>
+                <div>
+                  {item.options.map((option, index) => (
+                    <div key={index} className="text-3xl font-medium mt-4">
+                      <span className="font-bold text-red-500">Half:</span>{" "}
+                      {option.half} |{" "}
+                      <span className="font-bold text-red-600">Full:</span>{" "}
+                      {option.full}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-2xl w-96 mt-4 ">{item.description}</div>
               </div>
-              <div className="text-3xl font-medium w-96">
-                <span className="font-bold text-red-600 ">Food Name:</span>{" "}
-                {item.name}
-              </div>
-              <div>
-                {item.options.map((option, index) => (
-                  <div key={index} className="text-3xl font-medium">
-                    <span className="font-bold text-red-500">Half:</span>{" "}
-                    {option.half} |{" "}
-                    <span className="font-bold text-red-600">Full:</span>{" "}
-                    {option.full}
-                  </div>
-                ))}
-              </div>
-              <div className="text-2xl w-96 ">{item.description}</div>
-              <div className="flex justify-between">
+              <div className="flex justify-between ">
                 <Link to={`/update/${item._id}`} className=" hover:underline">
                   <button className="bg-blue-600 text-white p-4 shadow-xl rounded-xl font-bold">
                     Update
