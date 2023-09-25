@@ -21,6 +21,10 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!credentials.name || !credentials.email || !credentials.password) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     const response = await fetch("http://localhost:7000/api/loginuser", {
       method: "POST",
       headers: {
@@ -103,6 +107,7 @@ const LoginPage = () => {
                   placeholder="Enter your full name"
                   className="p-8 text-3xl hover:shadow-2xl w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="name"
+                  required
                   value={credentials.name}
                   onChange={onChange}
                 />
@@ -115,6 +120,7 @@ const LoginPage = () => {
                   placeholder="Enter your email"
                   className="p-8 text-3xl hover:shadow-2xl w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="email"
+                  required
                   value={credentials.email}
                   onChange={onChange}
                 />
@@ -127,6 +133,7 @@ const LoginPage = () => {
                   placeholder="Enter your password"
                   className="p-8 text-3xl hover:shadow-2xl w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="password"
+                  required
                   value={credentials.password}
                   onChange={onChange}
                 />

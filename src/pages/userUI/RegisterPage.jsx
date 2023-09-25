@@ -13,6 +13,10 @@ const RegisterPage = () => {
   const [secretKey, setSecretKey] = useState("");
 
   const handleSubmit = async (e) => {
+    if (!credentials.name || !credentials.email || !credentials.password) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     if (userType == "Admin" && secretKey != "POONAM") {
       e.preventDefault();
       alert("Invalid Admin");
@@ -126,10 +130,11 @@ const RegisterPage = () => {
                 <br />
 
                 <input
-                  type="name"
+                  type="text"
                   placeholder="Enter your full name"
                   className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="name"
+                  required
                   value={credentials.name}
                   onChange={onChange}
                 />
@@ -142,6 +147,7 @@ const RegisterPage = () => {
                   placeholder="Enter your email"
                   className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="email"
+                  required
                   value={credentials.email}
                   onChange={onChange}
                 />
@@ -154,20 +160,11 @@ const RegisterPage = () => {
                   placeholder="Enter your password"
                   className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="password"
+                  required
                   value={credentials.password}
                   onChange={onChange}
                 />
               </div>
-
-              {/* <div className="mt-8">
-                <label className="font-bold">Confirm Password</label>
-                <br />
-                <input
-                  type="password"
-                  placeholder="Enter confirm password"
-                  className="shadow-lg rounded-2xl px-8 pt-6 w-full pb-8 mb-4 mt-4 border-b border-b-red-800 "
-                />
-              </div> */}
 
               <div className="mt-8">
                 <label className="font-bold">Address</label>
@@ -178,6 +175,7 @@ const RegisterPage = () => {
                   className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
                   name="geolocation"
                   value={credentials.geolocation}
+                  required
                   onChange={onChange}
                 />
               </div>

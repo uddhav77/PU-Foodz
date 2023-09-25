@@ -23,6 +23,13 @@ const AdminCategories = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+
+    // Check if the category field is empty
+    if (!category) {
+      alert("Category field is empty. Please fill in the category.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:7000/api/foodCategory", {
         method: "POST",
