@@ -11,55 +11,76 @@ const RegisterPage = () => {
 
   const [userType, setUserType] = useState("");
   const [secretKey, setSecretKey] = useState("");
+  const [errors, setErrors] = useState({}); // State to store field validation errors
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!credentials.name || !credentials.email || !credentials.password) {
       alert("Please fill in all required fields.");
       return;
     }
-    if (userType == "Admin" && secretKey != "POONAM") {
-      e.preventDefault();
-      alert("Invalid Admin");
-    } else {
-      e.preventDefault();
-      try {
-        const response = await fetch("http://localhost:7000/api/createuser", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: credentials.name,
-            email: credentials.email,
-            password: credentials.password,
-            location: credentials.geolocation,
-            userType,
-          }),
-        });
-        const json = await response.json();
 
-        if (response.ok && json.success) {
-          // Registration successful
-          alert("Registration successful");
-          // Navigate to the login page
-          window.location.href = "/login";
-        } else if (!response.ok) {
-          // Handle non-2xx HTTP responses
-          const errorMessage = json.message || "Registration failed";
-          alert(errorMessage);
-        } else {
-          // Registration failed
-          const errorMessage = json.message || "Enter Valid Credentials";
-          alert(errorMessage);
-        }
-      } catch (error) {
-        // Handle network errors
-        alert("An error occurred while registering. Please try again later.");
+    // Validate required fields
+    const validationErrors = {};
+    if (!credentials.name) {
+      validationErrors.name = "Full Name is required.";
+    }
+    if (!credentials.email) {
+      validationErrors.email = "Email is required.";
+    }
+    if (!credentials.password) {
+      validationErrors.password = "Password is required.";
+    }
+
+    if (userType === "Admin" && !secretKey) {
+      validationErrors.secretKey = "Secret Key is required for Admin.";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      // If there are validation errors, set them in the state and return
+      setErrors(validationErrors);
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:7000/api/createuser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: credentials.name,
+          email: credentials.email,
+          password: credentials.password,
+          location: credentials.geolocation,
+          userType,
+        }),
+      });
+      const json = await response.json();
+
+      if (response.ok && json.success) {
+        // Registration successful
+        alert("Registration successful");
+        // Navigate to the login page
+        window.location.href = "/login";
+      } else if (!response.ok) {
+        // Handle non-2xx HTTP responses
+        const errorMessage = json.message || "Registration failed";
+        alert(errorMessage);
+      } else {
+        // Registration failed
+        const errorMessage = json.message || "Enter Valid Credentials";
+        alert(errorMessage);
       }
+    } catch (error) {
+      // Handle network errors
+      alert("An error occurred while registering. Please try again later.");
     }
   };
 
   const onChange = (event) => {
+    // Clear the error message for the field when the input changes
+    setErrors({ ...errors, [event.target.name]: "" });
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
 
@@ -81,7 +102,7 @@ const RegisterPage = () => {
             </span>
 
             <div className="text-3xl text-black mt-8 font-medium text-center ">
-              "Food may be essential as fule for the body, <br /> but GOOD food
+              "Food may be essential as fuel for the body, <br /> but GOOD food
               is fuel for the soul"
             </div>
           </div>
@@ -98,7 +119,7 @@ const RegisterPage = () => {
                 name="UserType"
                 value="User"
                 onChange={(e) => setUserType(e.target.value)}
-                style={{ transform: "scale(1.5)" }} // You can adjust the scale value to change the size
+                style={{ transform: "scale(1.5)" }}
               />
               User
               <input
@@ -106,51 +127,58 @@ const RegisterPage = () => {
                 name="UserType"
                 value="Admin"
                 onChange={(e) => setUserType(e.target.value)}
-                style={{ transform: "scale(1.5)" }} // You can adjust the scale value to change the size
+                style={{ transform: "scale(1.5)" }}
               />
               Admin
             </div>
             <div className="pt-8 mt-8 text-3xl mt-8">
-              {userType == "Admin" ? (
+              {userType === "Admin" ? (
                 <div>
-                  <label className="font-bold  ">Secret Key</label>
+                  <label className="font-bold">Secret Key</label>
                   <br />
-
                   <input
                     type="text"
                     placeholder="Secret Key for Admin"
-                    className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                    className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                     onChange={(e) => setSecretKey(e.target.value)}
                   />
+                  {errors.secretKey && (
+                    <div className="text-red-500">{errors.secretKey}</div>
+                  )}
                 </div>
               ) : null}
 
               <div className="mt-6">
-                <label className="font-bold  ">Full Name</label>
+                <label className="font-bold">Full Name</label>
                 <br />
-
                 <input
                   type="text"
                   placeholder="Enter your full name"
-                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="name"
                   required
                   value={credentials.name}
                   onChange={onChange}
                 />
+                {errors.name && (
+                  <div className="text-red-500 mt-4">{errors.name}</div>
+                )}
               </div>
               <div className="mt-8">
-                <label className="font-bold ">Email</label>
+                <label className="font-bold">Email</label>
                 <br />
                 <input
                   type="Email"
                   placeholder="Enter your email"
-                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="email"
                   required
                   value={credentials.email}
                   onChange={onChange}
                 />
+                {errors.email && (
+                  <div className="text-red-500 mt-4">{errors.email}</div>
+                )}
               </div>
               <div className="mt-8">
                 <label className="font-bold">Password</label>
@@ -158,21 +186,23 @@ const RegisterPage = () => {
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="password"
                   required
                   value={credentials.password}
                   onChange={onChange}
                 />
+                {errors.password && (
+                  <div className="text-red-500 mt-4">{errors.password}</div>
+                )}
               </div>
-
               <div className="mt-8">
                 <label className="font-bold">Address</label>
                 <br />
                 <input
                   type="text"
                   placeholder="Your current location"
-                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4 "
+                  className="p-8 text-3xl hover:shadow-2xl  w-full focus:outline-none focus:ring focus:border-blue-300 shadow-lg rounded-2xl w-full border-b border-b-red-800 mt-4"
                   name="geolocation"
                   value={credentials.geolocation}
                   required
@@ -187,11 +217,10 @@ const RegisterPage = () => {
                   Register
                 </button>
               </div>
-
               <div className="mt-8 flex justify-center">
                 Already have an account?
                 <Link to="/login">
-                  <div className=" underline font-medium"> Log In</div>
+                  <div className="underline font-medium"> Log In</div>
                 </Link>
               </div>
             </div>

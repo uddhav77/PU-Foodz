@@ -12,6 +12,18 @@ const AddMenu = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    if (
+      !category ||
+      !foodName ||
+      !halfPrice ||
+      !fullPrice ||
+      !description ||
+      !imageUrl
+    ) {
+      alert("Please fill in all the fields.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:7000/api/foodMenu", {
         method: "POST",
