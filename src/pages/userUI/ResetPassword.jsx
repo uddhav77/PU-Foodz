@@ -36,6 +36,12 @@ const ResetPassword = () => {
   return (
     <div className="h-screen bg-gray-400">
       <div className="flex p-20 justify-center pt-32 items-center">
+        <div>
+          <img
+            src="https://imgs.search.brave.com/MdDtITJwQDZlUWAzuygscqRXPyonTHhFkQuGVR_5xBM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQx/MjA5MjU5Ny92ZWN0/b3IvcmVzZXQtcGFz/c3dvcmQtYWN0aW9u/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1DaUQwdHJGTU9i/SGRRVk5XVS16YlN6/QjJrSlhnQnlsenoz/M2h3dFY3S1JjPQ"
+            className="h-[650px] rounded-l-3xl "
+          />
+        </div>
         <div className="bg-white p-20 rounded-ee-3xl rounded-se-3xl">
           <form className="w-full" onSubmit={handleSubmit}>
             <div className="text-5xl font-bold text-red-600 flex justify-center">

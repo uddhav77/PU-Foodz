@@ -37,7 +37,13 @@ const ForgetPassword = () => {
   return (
     <div className="h-screen bg-gray-400">
       <div className="flex p-20 justify-center pt-60 items-center">
-        <div className="bg-white p-20 rounded-3xl">
+        <div>
+          <img
+            src="https://imgs.search.brave.com/u7clPQ_wLvzRajkyzf3W0hxpqqC-ilSFpEnUFuRQw4o/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzIwLzMyLzUz/LzM2MF9GXzQyMDMy/NTMxM18wdGdDNjhl/Z2Z1aHR6S2YxT2hW/bFpSSEc2RHZ2MzZY/dC5qcGc"
+            className="h-[650px] rounded-l-3xl "
+          />
+        </div>
+        <div className="bg-white p-20  rounded-r-3xl ">
           <form className="w-full" onSubmit={handleSubmit}>
             <div className="text-5xl font-bold text-red-600 flex justify-center">
               Enter Your e-mail
